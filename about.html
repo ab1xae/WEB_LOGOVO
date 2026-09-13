@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About LOGOVO barbershop, our team and an interview with senior barber Akhmadzhon Ibrokhimov.">
+    <meta name="author" content="Rustem Gazymbekov">
+    <title>About Us | LOGOVO Barbershop</title>
+</head>
+<body>
+<!-- Author: Rustem Gazymbekov -->
+
+    <header>
+        <h1>LOGOVO Barbershop</h1>
+        <p>About Us</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services &amp; Prices</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="colophon.html">Colophon</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article id="about-us">
+            <h2>Who We Are</h2>
+            <p>
+                <strong>LOGOVO</strong> is a men's barbershop in Astana with
+                <mark>20 experienced barbers</mark>, each with 3 years of experience or more.
+                We have more than 2000 reviews on <abbr title="2GIS map and business directory">2GIS</abbr>
+                with a rating of 5.0, and in 2025 we got two <cite>2GIS Awards</cite>.
+                Our main rule is attention to every client. Our senior barber
+                talks about it in the <a href="#quote-source">interview below</a>.
+            </p>
+        </article>
+
+        <!-- aside because the numbers are extra info, not the main text -->
+        <aside>
+            <h2>In Numbers</h2>
+            <ul>
+                <li>More than 2000 reviews on 2GIS</li>
+                <li>Rating 5.0</li>
+                <li>20 barbers</li>
+                <li>2 awards at 2GIS Awards 2025</li>
+            </ul>
+            <!-- div here because it is just one number to show, not a list, not a section and not a paragraph -->
+            <div><strong>5.0</strong> - our rating on 2GIS</div>
+        </aside>
+
+        <section id="hours">
+            <h2>Working Hours</h2>
+            <table>
+                <caption>LOGOVO working hours<sup>*</sup></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Open</th>
+                        <th scope="col">Close</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Monday &ndash; Friday</th>
+                        <td>10:00</td>
+                        <td>21:00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Saturday</th>
+                        <td>10:00</td>
+                        <td>21:00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sunday</th>
+                        <td>10:00</td>
+                        <td>21:00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><small><sup>*</sup> The barbershop works every day, without days off.</small></p>
+        </section>
+
+        <hr>
+
+        <section id="interview">
+            <h2>Interview with the Senior Barber</h2>
+            <p>
+                We talked to <b>Akhmadzhon Ibrokhimov</b>, senior barber at LOGOVO.
+                He is 30, learns barbering since 2017 and works at LOGOVO since 2023.
+                We asked him on video: <q>What is the hardest part of a barber's job?</q>
+            </p>
+            <!-- blockquote because this is a real quote from the interview, not our text -->
+            <blockquote cite="" id="quote-source">
+                <p>You listen to the problems of every client and with all your heart find a way to solve them.</p>
+                <footer>- Akhmadzhon Ibrokhimov, senior barber at LOGOVO<br>interview on 13 September 2026</footer>
+            </blockquote>
+        </section>
+
+        <section id="glossary">
+            <h2>Small Barber Dictionary</h2>
+            <p>
+                Some words from the price list can be new, for example <i>tinting</i> is not coloring.
+                And 2GIS comes from <abbr title="Geographic Information System">GIS</abbr>: it is a map app with reviews.
+            </p>
+            <dl>
+                <dt>Beard styling</dt>
+                <dd>Giving the beard a clean shape with a trimmer and a razor.</dd>
+
+                <dt>Tinting</dt>
+                <dd>A light change of hair or beard color, not full coloring.</dd>
+
+                <dt>Top barber</dt>
+                <dd>A barber with a level between lead and senior barber.</dd>
+            </dl>
+        </section>
+
+        <figure>
+            <img src="images/logo-wall.jpg" alt="LOGOVO logo on the wall, the letters look like a razor" width="500">
+            <figcaption>LOGOVO logo.</figcaption>
+        </figure>
+
+        <p>
+            Contact us by email <a href="mailto:logovo.barbershop@mail.ru">logovo.barbershop@mail.ru</a>
+            or by phone <a href="tel:+77003968940">+7 700 396 8940</a>.
+        </p>
+
+        <section id="feedback">
+            <h2>Leave a Review</h2>
+            <p>Were you at LOGOVO? Tell us how it was.</p>
+            <form method="post" action="#">
+                <!-- there is no server yet, so the form does not send anything -->
+
+                <fieldset>
+                    <legend>About You</legend>
+
+                    <p>
+                        <label for="review-name">Name</label><br>
+                        <input type="text" id="review-name" name="review-name" placeholder="Your name" required>
+                    </p>
+
+                    <p>
+                        <label for="review-email">Email</label><br>
+                        <input type="email" id="review-email" name="review-email" placeholder="example@mail.com" required>
+                    </p>
+
+                    <p>
+                        <label for="review-phone">Phone</label><br>
+                        <input type="tel" id="review-phone" name="review-phone" placeholder="+7 700 000 0000">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your Visit</legend>
+
+                    <p>
+                        <label for="review-date">Date of visit</label><br>
+                        <input type="date" id="review-date" name="review-date" required>
+                    </p>
+
+                    <p>
+                        <label for="review-visits">How many times have you been here</label><br>
+                        <input type="number" id="review-visits" name="review-visits" min="1" max="100" value="1">
+                    </p>
+
+                    <p>
+                        <label for="review-barber">Your barber's level</label><br>
+                        <select id="review-barber" name="review-barber">
+                            <option value="lead">Lead barber</option>
+                            <option value="top">Top barber</option>
+                            <option value="senior">Senior barber</option>
+                            <option value="unknown">I do not remember</option>
+                        </select>
+                    </p>
+
+                    <p>Your rating</p>
+                    <!-- radio because a client gives only one rating -->
+                    <p>
+                        <input type="radio" id="rate-5" name="rating" value="5" checked>
+                        <label for="rate-5">5 - excellent</label><br>
+
+                        <input type="radio" id="rate-4" name="rating" value="4">
+                        <label for="rate-4">4 - good</label><br>
+
+                        <input type="radio" id="rate-3" name="rating" value="3">
+                        <label for="rate-3">3 - normal</label><br>
+
+                        <input type="radio" id="rate-2" name="rating" value="2">
+                        <label for="rate-2">2 or less - bad</label>
+                    </p>
+
+                    <p>
+                        <label for="review-text">Your review</label><br>
+                        <textarea id="review-text" name="review-text" rows="4" cols="40" placeholder="What did you like or not like?" required></textarea>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="review-publish" name="review-publish" checked>
+                        <label for="review-publish">You can show my review on the site</label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Send</button>
+                    <button type="reset">Clear</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Mangilik El 51/1, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
+        <p>&copy; 2026 LOGOVO Barbershop. Student project.</p>
+    </footer>
+
+</body>
+</html>
