@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Online booking at LOGOVO barbershop - choose a service, a barber and a time.">
+    <meta name="author" content="Abylay Utemis">
+    <title>Booking | LOGOVO Barbershop</title>
+</head>
+<body>
+<!-- Author: Abylay Utemis -->
+
+    <header>
+        <h1>LOGOVO Barbershop</h1>
+        <p>Booking</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services &amp; Prices</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="colophon.html">Colophon</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="booking-intro">
+            <h2>Book Your Visit</h2>
+            <p>
+                Fill in the form below to book a time with one of our barbers.
+                All services and prices are on the <a href="services.html">"Services &amp; Prices"</a> page.
+                If you want to call us, our number is <a href="tel:+77003968940">+7 700 396 8940</a>.
+                You can also write to <a href="mailto:logovo.barbershop@mail.ru">logovo.barbershop@mail.ru</a>.
+            </p>
+        </section>
+
+        <article id="barber-levels">
+            <h2>Which barber to choose</h2>
+            <p>In the form you choose the level of the barber:</p>
+            <dl>
+                <dt>Lead barber</dt>
+                <dd>The basic level and the lowest price.</dd>
+
+                <dt>Top barber</dt>
+                <dd>The middle level, includes the free bonus.</dd>
+
+                <dt>Senior barber</dt>
+                <dd>The highest level, also with the free bonus.</dd>
+            </dl>
+        </article>
+
+        <section id="why-us">
+            <h2>Why our barbers</h2>
+            <p>We asked senior barber Akhmadzhon Ibrokhimov what is the hardest part of his job:</p>
+            <blockquote cite="">
+                <p>You listen to the problems of every client and with all your heart find a way to solve them.</p>
+                <footer>- Akhmadzhon Ibrokhimov, senior barber, 13 September 2026</footer>
+            </blockquote>
+        </section>
+
+        <aside>
+            <h2>Tips</h2>
+            <p>
+                Come 5 minutes before your time. Press <kbd>Tab</kbd> to move between the fields.
+                The form does not send anything yet; later the server will answer with
+                <samp>Thank you! We will call you back.</samp>
+            </p>
+        </aside>
+
+        <figure>
+            <img src="images/facade.jpg" alt="Entrance to LOGOVO barbershop with a sign on the building" width="500">
+            <figcaption>The entrance from Mangilik El street</figcaption>
+        </figure>
+
+        <section id="booking-form">
+            <h2>Booking Form</h2>
+            <form method="post" action="#">
+                <!-- there is no server yet, so the form does not send anything -->
+
+                <!-- two fieldsets: one for contacts, one for the visit, so the form is easier to read -->
+                <fieldset>
+                    <legend>Your Contacts</legend>
+
+                    <p>
+                        <label for="client-name">Name</label><br>
+                        <input type="text" id="client-name" name="client-name" placeholder="Your name" required>
+                    </p>
+
+                    <p>
+                        <label for="client-email">Email</label><br>
+                        <input type="email" id="client-email" name="client-email" placeholder="example@mail.com" required>
+                    </p>
+
+                    <p>
+                        <label for="client-phone">Phone</label><br>
+                        <input type="tel" id="client-phone" name="client-phone" placeholder="+7 700 000 0000" required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Visit Details</legend>
+
+                    <p>
+                        <label for="visit-date">Date</label><br>
+                        <input type="date" id="visit-date" name="visit-date" required>
+                    </p>
+
+                    <p>
+                        <label for="people-count">Number of people</label><br>
+                        <input type="number" id="people-count" name="people-count" min="1" max="5" value="1">
+                    </p>
+
+                    <p>Barber level</p>
+                    <!-- radio and not checkbox because you can choose only one barber -->
+                    <p>
+                        <input type="radio" id="barber-lead" name="barber-level" value="lead">
+                        <label for="barber-lead">Lead Barber</label><br>
+
+                        <input type="radio" id="barber-top" name="barber-level" value="top" checked>
+                        <label for="barber-top">Top Barber</label><br>
+
+                        <input type="radio" id="barber-senior" name="barber-level" value="senior">
+                        <label for="barber-senior">Senior Barber</label>
+                    </p>
+
+                    <p>
+                        <label for="service-select">Service</label><br>
+                        <select id="service-select" name="service-select">
+                            <option value="haircut">Men's haircut</option>
+                            <option value="haircut-long">Long hair haircut</option>
+                            <option value="haircut-beard">Haircut + beard</option>
+                            <option value="beard">Beard styling</option>
+                            <option value="tint-hair">Hair tinting</option>
+                            <option value="facial">Facial cleansing</option>
+                            <option value="perm">Perm + haircut</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="agree-gift" name="agree-gift">
+                        <label for="agree-gift">I want the free bonus (only for top and senior barbers)</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="agree-sms" name="agree-sms" checked>
+                        <label for="agree-sms">Send me an <abbr title="Short Message Service">SMS</abbr> one hour before the visit</label>
+                    </p>
+
+                    <p>
+                        <label for="comment">Comment</label><br>
+                        <textarea id="comment" name="comment" rows="4" cols="40" placeholder="What haircut you want, allergies, etc."></textarea>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Book</button>
+                    <button type="reset">Clear</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Mangilik El 51/1, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
+        <p>&copy; 2026 LOGOVO Barbershop. Student project.</p>
+    </footer>
+
+</body>
+</html>
