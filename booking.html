@@ -6,13 +6,16 @@
     <meta name="description" content="Online booking at LOGOVO barbershop - choose a service, a barber and a time.">
     <meta name="author" content="Abylay Utemis">
     <title>Booking | LOGOVO Barbershop</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/abylay.css">
 </head>
 <body>
 <!-- Author: Abylay Utemis -->
 
     <header>
+        <img class="site-logo" src="images/logo.png" alt="LOGOVO logo" width="90">
         <h1>LOGOVO Barbershop</h1>
-        <p>Booking</p>
+        <p class="tagline">Booking</p>
     </header>
 
     <nav>
@@ -20,9 +23,10 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services &amp; Prices</a></li>
             <li><a href="booking.html">Booking</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="history.html">History</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="colophon.html">Colophon</a></li>
         </ul>
     </nav>
 
@@ -40,28 +44,25 @@
         <article id="barber-levels">
             <h2>Which barber to choose</h2>
             <p>In the form you choose the level of the barber:</p>
-            <dl>
-                <dt>Lead barber</dt>
-                <dd>The basic level and the lowest price.</dd>
-
+            <dl class="barber-levels">
                 <dt>Top barber</dt>
-                <dd>The middle level, includes the free bonus.</dd>
+                <dd>The basic level, includes the free bonus.</dd>
 
                 <dt>Senior barber</dt>
-                <dd>The highest level, also with the free bonus.</dd>
+                <dd>The highest level and the most experience, also with the free bonus.</dd>
             </dl>
         </article>
 
         <section id="why-us">
             <h2>Why our barbers</h2>
             <p>We asked senior barber Akhmadzhon Ibrokhimov what is the hardest part of his job:</p>
-            <blockquote cite="">
+            <blockquote class="quote-box" cite="">
                 <p>You listen to the problems of every client and with all your heart find a way to solve them.</p>
                 <footer>- Akhmadzhon Ibrokhimov, senior barber, 13 September 2026</footer>
             </blockquote>
         </section>
 
-        <aside>
+        <aside class="tip-box">
             <h2>Tips</h2>
             <p>
                 Come 5 minutes before your time. Press <kbd>Tab</kbd> to move between the fields.
@@ -70,14 +71,14 @@
             </p>
         </aside>
 
-        <figure>
+        <figure class="photo-frame">
             <img src="images/facade.jpg" alt="Entrance to LOGOVO barbershop with a sign on the building" width="500">
             <figcaption>The entrance from Mangilik El street</figcaption>
         </figure>
 
         <section id="booking-form">
             <h2>Booking Form</h2>
-            <form method="post" action="#">
+            <form class="booking-form" method="post" action="#">
                 <!-- there is no server yet, so the form does not send anything -->
 
                 <!-- two fieldsets: one for contacts, one for the visit, so the form is easier to read -->
@@ -116,9 +117,6 @@
                     <p>Barber level</p>
                     <!-- radio and not checkbox because you can choose only one barber -->
                     <p>
-                        <input type="radio" id="barber-lead" name="barber-level" value="lead">
-                        <label for="barber-lead">Lead Barber</label><br>
-
                         <input type="radio" id="barber-top" name="barber-level" value="top" checked>
                         <label for="barber-top">Top Barber</label><br>
 
@@ -155,17 +153,19 @@
                     </p>
                 </fieldset>
 
-                <p>
+                <p class="form-actions">
                     <button type="submit">Book</button>
                     <button type="reset">Clear</button>
                 </p>
             </form>
         </section>
+
+        <a class="book-cta" href="tel:+77003968940">Call us</a>
     </main>
 
     <footer>
-        <p>Mangilik El 51/1, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
-        <p>&copy; 2026 LOGOVO Barbershop. Student project.</p>
+        <p>Mangilik El 51/2, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
+        <p>&copy; 2026 LOGOVO Barbershop.</p>
     </footer>
 
 </body>

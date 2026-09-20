@@ -6,13 +6,16 @@
     <meta name="description" content="Price list of LOGOVO barbershop: haircuts, beard styling, tinting and perms.">
     <meta name="author" content="Abylay Utemis">
     <title>Services &amp; Prices | LOGOVO Barbershop</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/abylay.css">
 </head>
 <body>
 <!-- Author: Abylay Utemis -->
 
     <header>
+        <img class="site-logo" src="images/logo.png" alt="LOGOVO logo" width="90">
         <h1>LOGOVO Barbershop</h1>
-        <p>Services &amp; Prices</p>
+        <p class="tagline">Services &amp; Prices</p>
     </header>
 
     <nav>
@@ -20,9 +23,10 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services &amp; Prices</a></li>
             <li><a href="booking.html">Booking</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="history.html">History</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="colophon.html">Colophon</a></li>
         </ul>
     </nav>
 
@@ -30,8 +34,9 @@
         <section id="services-intro">
             <h2>Our Services</h2>
             <p>
+                <img class="float-photo" src="images/price-list.jpg" alt="LOGOVO price list on the stand" width="320">
                 In LOGOVO (the word <i>logovo</i> means "lair" in Russian) the price depends
-                on the barber's level: <b>lead</b>, <b>top</b> or <b>senior</b>.
+                on the barber's level: <b>top</b> or <b>senior</b>.
                 A haircut from a top or senior barber includes <a href="#gift">a free bonus</a>.
                 The steps of a visit are in <a href="#visit-steps">&quot;How a Visit Works&quot;</a>.
             </p>
@@ -42,21 +47,21 @@
                 for example 3000&ndash;5000 tg for a men's haircut. <em>Kids pay less.</em>
             </p>
 
-            <ul>
-                <li>Haircuts
+            <ul class="service-list">
+                <li class="service-group">Haircuts
                     <ul>
                         <li>Kids (up to 7 years)</li>
                         <li>Men's (8 years and older)</li>
                         <li>Long hair</li>
                     </ul>
                 </li>
-                <li>Beard
+                <li class="service-group">Beard
                     <ul>
                         <li>Beard styling</li>
                         <li>Beard tinting</li>
                     </ul>
                 </li>
-                <li>Other
+                <li class="service-group">Other
                     <ul>
                         <li>Hair tinting</li>
                         <li>Facial cleansing</li>
@@ -68,13 +73,13 @@
 
         <section id="price-table">
             <h2>Price List</h2>
+            <p class="offer-badge">Tuesday: Student Day</p>
             <!-- prices are in a table because every service has 3 prices, a list would be hard to read -->
-            <table>
+            <table class="price-table">
                 <caption>Prices of LOGOVO Barbershop in tenge (tg), September 2026<sup>*</sup></caption>
                 <thead>
                     <tr>
                         <th scope="col">Service</th>
-                        <th scope="col">Lead Barber</th>
                         <th scope="col">Top Barber</th>
                         <th scope="col">Senior Barber</th>
                     </tr>
@@ -82,61 +87,51 @@
                 <tbody>
                     <tr>
                         <th scope="row">Kids haircut (up to 7 years)</th>
-                        <td>2000 tg</td>
                         <td>3000 tg</td>
                         <td>4000 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Men's haircut (8 years and older)</th>
-                        <td>3000 tg</td>
                         <td>4000 tg</td>
                         <td>5000 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Long hair haircut</th>
-                        <td>4000 tg</td>
                         <td>5000 tg</td>
                         <td>6000 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Haircut + beard styling</th>
-                        <td>5000 tg</td>
                         <td>7000 tg</td>
                         <td>9000 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Beard styling</th>
-                        <td>2000 tg</td>
                         <td>3000 tg</td>
                         <td>4000 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Hair tinting</th>
-                        <td>3000 tg</td>
                         <td>4000 tg</td>
                         <td>5000 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Beard tinting</th>
-                        <td>2000 tg</td>
                         <td>3000 tg</td>
                         <td>4000 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Tuesday "Student Day" offer</th>
-                        <td>2500 tg</td>
                         <td>3500 tg</td>
                         <td>4500 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Facial cleansing</th>
-                        <td>3000 tg</td>
                         <td>4000 tg</td>
                         <td>5000 tg</td>
                     </tr>
                     <tr>
                         <th scope="row">Perm + haircut</th>
-                        <td>-</td>
                         <td>20000 tg</td>
                         <td>20000 tg</td>
                     </tr>
@@ -151,28 +146,25 @@
         <section id="visit-steps">
             <h2>How a Visit Works</h2>
             <!-- ol and not ul because the steps go in order -->
-            <ol type="1">
+            <ol type="1" class="step-list">
                 <li>Choose a service and a barber in the <a href="booking.html">booking form</a>.</li>
-                <li>Come at your time to Mangilik El 51/1.</li>
+                <li>Come at your time to Mangilik El 51/2.</li>
                 <li>The barber asks what you want and does the job.</li>
                 <li>With a top or senior barber you get the free bonus.</li>
             </ol>
         </section>
 
-        <figure>
-            <img src="images/price-list.jpg" alt="LOGOVO price list on the stand" width="500">
-            <figcaption>The price list in the waiting area</figcaption>
-        </figure>
-
-        <figure>
+        <figure class="photo-frame">
             <img src="images/tools-station.jpg" alt="Barber workplace with clippers, scissors and combs" width="500">
             <figcaption>The tools our barbers work with</figcaption>
         </figure>
+
+        <a class="book-cta" href="booking.html">Book a visit</a>
     </main>
 
     <footer>
-        <p>Mangilik El 51/1, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
-        <p>&copy; 2026 LOGOVO Barbershop. Student project.</p>
+        <p>Mangilik El 51/2, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
+        <p>&copy; 2026 LOGOVO Barbershop.</p>
     </footer>
 
 </body>
