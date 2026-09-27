@@ -6,75 +6,101 @@
     <meta name="description" content="LOGOVO Barbershop - men's barbershop in Astana, Mangilik El 51/2. Haircuts, beard, hair care. Open every day 10:00-21:00.">
     <meta name="author" content="Abylay Utemis, Rustem Gazymbekov, Alfarabi">
     <title>LOGOVO Barbershop</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/abylay.css">
-    <!-- the only internal style block on the site, to show the cascade: same specificity
-         as .tagline in base.css, but later in order, so its color overrides the cream one -->
-    <style>
-        .tagline {
-            color: #c9a24d;
-        }
-    </style>
+    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-<!-- Authors: Abylay Utemis, Rustem Gazymbekov, Alfarabi -->
+<!-- Author: Abylay Utemis, Rustem Gazymbekov, Alfarabi -->
 
-    <header>
-        <img class="site-logo" src="images/logo.png" alt="LOGOVO logo" width="90">
-        <h1>LOGOVO Barbershop</h1>
-        <!-- the only inline style on the site, to show the cascade: inline beats every
-             stylesheet rule, so it overrides the 0.05em letter-spacing of .tagline in base.css -->
-        <p class="tagline" style="letter-spacing: 0.25em;">Men's barbershop in Astana</p>
+    <!-- container-fluid: the dark band has to reach both edges of the window -->
+    <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
+        <div class="container">
+            <img class="rounded-circle border border-3 border-warning bg-white mb-3" src="images/logo.png" alt="LOGOVO logo" width="90" height="90">
+            <h1 class="display-5 text-uppercase mb-0">LOGOVO Barbershop</h1>
+            <!-- d-none d-sm-block: the tagline is dropped on a phone -->
+            <p class="lead text-warning mb-0 d-none d-sm-block">Men's barbershop in Astana</p>
+        </div>
     </header>
 
-    <!-- links are in ul because the menu is a list of pages -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services &amp; Prices</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
+    <!-- links are in ul because the menu is a list of pages.
+         navbar-expand-lg: below 992px the seven links collapse into the toggler. -->
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services &amp; Prices</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
-        <section id="intro">
-            <h2>Welcome to LOGOVO</h2>
-            <p>
-                LOGOVO Barbershop is in Astana.
-                We have 20 barbers and more than 2000 reviews on 2GIS.
-            </p>
-            <p>
-                On this site you can see our <a href="services.html">services and prices</a>,
-                <a href="booking.html">book a visit</a>, read <a href="about.html">about us</a>
-                and an interview with our senior barber, and look at
-                <a href="gallery.html">photos</a> from inside the barbershop.
-            </p>
-        </section>
+    <!-- container and not container-fluid: this page is mostly text, and a line of
+         text that runs the full width of a wide monitor is hard to read -->
+    <main class="container py-5">
+        <div class="row g-4 g-lg-5">
+            <div class="col-12 col-lg-7">
+                <section id="intro">
+                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Welcome to LOGOVO</h2>
+                    <p class="lead">
+                        LOGOVO Barbershop is in Astana.
+                        We have 20 barbers and more than 2000 reviews on 2GIS.
+                    </p>
+                    <p>
+                        On this site you can see our <a href="services.html">services and prices</a>,
+                        <a href="booking.html">book a visit</a>, read <a href="about.html">about us</a>
+                        and an interview with our senior barber, and look at
+                        <a href="gallery.html">photos</a> from inside the barbershop.
+                    </p>
+                    <!-- d-grid on a phone makes both buttons full width, d-sm-flex puts
+                         them next to each other from 576px up -->
+                    <div class="d-grid gap-2 d-sm-flex">
+                        <a class="btn btn-warning btn-lg" href="booking.html">Book a visit</a>
+                        <a class="btn btn-outline-dark btn-lg" href="services.html">See the prices</a>
+                    </div>
+                </section>
 
-        <figure class="photo-frame">
-            <img src="images/facade.jpg" alt="Entrance to LOGOVO barbershop with a sign on the building" width="600">
-            <figcaption>LOGOVO barbershop, Mangilik El 51/2</figcaption>
-        </figure>
+                <!-- address, hours and phone are in a list, not in a table, because it is
+                     only 3 short items. The list group is a Bootstrap component. -->
+                <section id="quick-info" class="mt-5">
+                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Quick Info</h2>
+                    <ul class="list-group shadow-sm">
+                        <li class="list-group-item"><strong>Address:</strong> Mangilik El 51/2, Astana</li>
+                        <li class="list-group-item"><strong>Working hours:</strong> 10:00-21:00, every day</li>
+                        <li class="list-group-item"><strong>Phone:</strong> <a href="tel:+77003968940">+7 700 396 8940</a></li>
+                    </ul>
+                </section>
+            </div>
 
-        <!-- address, hours and phone are in a list, not in a table, because it is only 3 short items -->
-        <section id="quick-info">
-            <h2>Quick Info</h2>
-            <ul>
-                <li><strong>Address:</strong> Mangilik El 51/2, Astana</li>
-                <li><strong>Working hours:</strong> 10:00-21:00, every day</li>
-                <li><strong>Phone:</strong> <a href="tel:+77003968940">+7 700 396 8940</a></li>
-            </ul>
-        </section>
+            <div class="col-12 col-lg-5">
+                <figure class="figure w-100">
+                    <img class="figure-img img-fluid rounded shadow-sm mb-2" src="images/facade.jpg" alt="Entrance to LOGOVO barbershop with a sign on the building">
+                    <figcaption class="figure-caption fst-italic">LOGOVO barbershop, Mangilik El 51/2</figcaption>
+                </figure>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <p>Mangilik El 51/2, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
-        <p>&copy; 2026 LOGOVO Barbershop.</p>
+    <footer class="container-fluid bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row gy-2 align-items-center">
+                <!-- centred on a phone, pushed to the two sides from 768px up -->
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-start">Mangilik El 51/2, Astana | Phone: <a class="link-warning" href="tel:+77003968940">+7 700 396 8940</a></p>
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-end">&copy; 2026 LOGOVO Barbershop.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
