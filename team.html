@@ -6,144 +6,211 @@
     <meta name="description" content="The barbers of LOGOVO barbershop in Astana: top and senior barbers, their prices, hair designs and the free gift.">
     <meta name="author" content="Alfarabi">
     <title>Our Barbers | LOGOVO Barbershop</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/alfarabi.css">
+    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <!-- Author: Alfarabi -->
 
-    <header>
-        <img class="site-logo" src="images/logo.png" alt="LOGOVO logo" width="90">
-        <h1>LOGOVO Barbershop</h1>
-        <p class="tagline">Our Barbers</p>
+    <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
+        <div class="container">
+            <img class="rounded-circle border border-3 border-warning bg-white mb-3" src="images/logo.png" alt="LOGOVO logo" width="90" height="90">
+            <h1 class="display-5 text-uppercase mb-0">LOGOVO Barbershop</h1>
+            <p class="lead text-warning mb-0 d-none d-sm-block">Our Barbers</p>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services &amp; Prices</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services &amp; Prices</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
+    <!-- container and not container-fluid: six barber cards and two price lists read
+         better in a held-in column than stretched across a wide monitor -->
+    <main class="container py-5">
         <section id="team-intro">
-            <h2>Who Cuts Your Hair</h2>
-            <p>
-                <img class="intro-photo" src="images/tools-station.jpg" alt="Barber workplace with clippers, scissors and combs" width="300">
-                In LOGOVO there are two levels of barbers: <strong>top</strong> and <strong>senior</strong>.
-                The level depends on the experience of the barber and the price depends on the level.
-                Every barber works 3 years or more. Below are the barbers of each level
-                and the prices. You can choose the level of the barber in the
-                <a href="booking.html">booking form</a>.
-            </p>
-            <p>
-                Prices are in tenge (<abbr title="tenge, the currency of Kazakhstan">tg</abbr>).
-                The full price list with all services is on the <a href="services.html">Services &amp; Prices</a> page.
-            </p>
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Who Cuts Your Hair</h2>
+            <div class="row g-4 align-items-start">
+                <div class="col-12 col-md-5 col-lg-4">
+                    <img class="img-fluid rounded shadow-sm" src="images/tools-station.jpg" alt="Barber workplace with clippers, scissors and combs">
+                </div>
+                <div class="col-12 col-md-7 col-lg-8">
+                    <p class="lead">
+                        In LOGOVO there are two levels of barbers: <strong>top</strong> and <strong>senior</strong>.
+                        The level depends on the experience of the barber and the price depends on the level.
+                    </p>
+                    <p>
+                        Every barber works 3 years or more. Below are the barbers of each level
+                        and the prices. You can choose the level of the barber in the
+                        <a href="booking.html">booking form</a>.
+                    </p>
+                    <p class="mb-0">
+                        Prices are in tenge (<abbr title="tenge, the currency of Kazakhstan">tg</abbr>).
+                        The full price list with all services is on the <a href="services.html">Services &amp; Prices</a> page.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <section id="top-barbers">
-            <h2>Top Barbers</h2>
-            <ul class="barber-list">
-                <li class="barber-card">
-                    <!-- we do not have photos of the barbers, so instead of a photo there is the first letter of the name in a circle -->
-                    <span class="avatar">N</span>
-                    <h3>Nurbakyt</h3>
-                    <p class="level-badge">Top</p>
+        <section id="top-barbers" class="bg-white border rounded shadow-sm p-3 p-md-4 mt-5">
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Top Barbers</h2>
+
+            <!-- BOOTSTRAP COMPONENT: CARD, taken from the Cards page of the documentation.
+                 What we changed: we have no photos of the barbers, so in place of the card
+                 image there is the first letter of the name in a gold circle built from the
+                 rounded-circle, bg-warning and d-flex utilities; the level moved into a badge
+                 pinned to the corner of the card; h-100 makes all cards in the row equally
+                 tall; the cards sit in li elements because the barbers are a list. -->
+            <ul class="row g-4 list-unstyled mb-4">
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">N</span>
+                            <h3 class="card-title h5 mb-0">Nurbakyt</h3>
+                        </div>
+                        <p class="badge text-bg-dark position-absolute top-0 end-0 m-2">Top</p>
+                    </div>
                 </li>
-                <li class="barber-card">
-                    <span class="avatar">B</span>
-                    <h3>Baktybay</h3>
-                    <p class="level-badge">Top</p>
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">B</span>
+                            <h3 class="card-title h5 mb-0">Baktybay</h3>
+                        </div>
+                        <p class="badge text-bg-dark position-absolute top-0 end-0 m-2">Top</p>
+                    </div>
                 </li>
-                <li class="barber-card">
-                    <span class="avatar">I</span>
-                    <h3>Ilyas</h3>
-                    <p class="level-badge">Top</p>
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">I</span>
+                            <h3 class="card-title h5 mb-0">Ilyas</h3>
+                        </div>
+                        <p class="badge text-bg-dark position-absolute top-0 end-0 m-2">Top</p>
+                    </div>
                 </li>
             </ul>
 
-            <h3>Prices of a top barber</h3>
-            <!-- dl because every line is a pair "service - price" -->
-            <dl class="level-prices">
-                <dt>Haircut</dt>
-                <dd>4000 tg</dd>
-                <dt>Long hair haircut</dt>
-                <dd>5000 tg</dd>
-                <dt>Beard styling</dt>
-                <dd>3000 tg</dd>
-                <dt>Kids haircut</dt>
-                <dd>3000 tg</dd>
+            <h3 class="h5">Prices of a top barber</h3>
+            <!-- dl because every line is a pair "service - price", the row class lines
+                 the pairs up in two columns without any grid of our own -->
+            <dl class="row bg-body border rounded p-3 mb-3">
+                <dt class="col-8 col-sm-9">Haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">4000 tg</dd>
+                <dt class="col-8 col-sm-9">Long hair haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">5000 tg</dd>
+                <dt class="col-8 col-sm-9">Beard styling</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">3000 tg</dd>
+                <dt class="col-8 col-sm-9">Kids haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-0">3000 tg</dd>
             </dl>
-            <p class="gift-note">Top barbers give a face mask, hair wax and a head massage as a gift with the haircut.</p>
+            <p class="alert alert-warning border-start border-4 border-warning mb-0">&#9733; Top barbers give a face mask, hair wax and a head massage as a gift with the haircut.</p>
         </section>
 
-        <section id="senior-barbers">
-            <h2>Senior Barbers</h2>
-            <ul class="barber-list">
-                <li class="barber-card">
-                    <span class="avatar">A</span>
-                    <h3>Akhmadzhon</h3>
-                    <p class="level-badge">Senior</p>
-                    <p>Read his <a href="about.html#quote-source">interview</a> on the About Us page.</p>
+        <section id="senior-barbers" class="bg-white border rounded shadow-sm p-3 p-md-4 mt-5">
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Senior Barbers</h2>
+
+            <!-- the same card, with text-bg-warning on the badge for the senior level -->
+            <ul class="row g-4 list-unstyled mb-4">
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">A</span>
+                            <h3 class="card-title h5">Akhmadzhon</h3>
+                            <p class="card-text small mb-0">Read his <a href="about.html#quote-source">interview</a> on the About Us page.</p>
+                        </div>
+                        <p class="badge text-bg-warning position-absolute top-0 end-0 m-2">Senior</p>
+                    </div>
                 </li>
-                <li class="barber-card">
-                    <span class="avatar">S</span>
-                    <h3>Shukur</h3>
-                    <p class="level-badge">Senior</p>
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">S</span>
+                            <h3 class="card-title h5 mb-0">Shukur</h3>
+                        </div>
+                        <p class="badge text-bg-warning position-absolute top-0 end-0 m-2">Senior</p>
+                    </div>
                 </li>
-                <li class="barber-card">
-                    <span class="avatar">K</span>
-                    <h3>Khan</h3>
-                    <p class="level-badge">Senior</p>
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">K</span>
+                            <h3 class="card-title h5 mb-0">Khan</h3>
+                        </div>
+                        <p class="badge text-bg-warning position-absolute top-0 end-0 m-2">Senior</p>
+                    </div>
                 </li>
             </ul>
 
-            <h3>Prices of a senior barber</h3>
-            <dl class="level-prices">
-                <dt>Haircut</dt>
-                <dd>5000 tg</dd>
-                <dt>Long hair haircut</dt>
-                <dd>6000 tg</dd>
-                <dt>Beard styling</dt>
-                <dd>4000 tg</dd>
-                <dt>Kids haircut</dt>
-                <dd>4000 tg</dd>
-                <dt>Combo: haircut + beard</dt>
-                <dd>9000 tg</dd>
+            <h3 class="h5">Prices of a senior barber</h3>
+            <dl class="row bg-body border rounded p-3 mb-3">
+                <dt class="col-8 col-sm-9">Haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">5000 tg</dd>
+                <dt class="col-8 col-sm-9">Long hair haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">6000 tg</dd>
+                <dt class="col-8 col-sm-9">Beard styling</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">4000 tg</dd>
+                <dt class="col-8 col-sm-9">Kids haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">4000 tg</dd>
+                <dt class="col-8 col-sm-9">Combo: haircut + beard</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-0">9000 tg</dd>
             </dl>
-            <p class="gift-note">Senior barbers give the same gift with the haircut: face mask, hair wax and a head massage.</p>
+            <p class="alert alert-warning border-start border-4 border-warning mb-0">&#9733; Senior barbers give the same gift with the haircut: face mask, hair wax and a head massage.</p>
         </section>
 
-        <section id="hair-designs">
-            <h2>Hair Designs</h2>
-            <p>A barber of any level can shave a small design in the haircut. The price is added to the price of the haircut.</p>
-            <ul class="design-list">
-                <li class="design-card">
-                    <h3>Lightning</h3>
-                    <p>A short lightning line above the ear or on the back of the head.</p>
-                    <p class="design-price">500 tg</p>
+        <section id="hair-designs" class="mt-5">
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Hair Designs</h2>
+            <p class="lead">A barber of any level can shave a small design in the haircut. The price is added to the price of the haircut.</p>
+            <ul class="row g-4 list-unstyled mb-0">
+                <li class="col-12 col-md-6">
+                    <div class="card h-100 border-start border-4 border-warning shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Lightning</h3>
+                            <p class="card-text">A short lightning line above the ear or on the back of the head.</p>
+                            <p class="card-text fw-bold text-primary mb-0">500 tg</p>
+                        </div>
+                    </div>
                 </li>
-                <li class="design-card">
-                    <h3>Spiderweb</h3>
-                    <p>A web pattern on the side of the head, it takes more time.</p>
-                    <p class="design-price">1000 tg</p>
+                <li class="col-12 col-md-6">
+                    <div class="card h-100 border-start border-4 border-primary shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Spiderweb</h3>
+                            <p class="card-text">A web pattern on the side of the head, it takes more time.</p>
+                            <p class="card-text fw-bold text-primary mb-0">1000 tg</p>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </section>
 
-        <a class="book-now" href="booking.html">Book a barber</a>
+        <a class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html">Book a barber</a>
     </main>
 
-    <footer>
-        <p>Mangilik El 51/2, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
-        <p>&copy; 2026 LOGOVO Barbershop.</p>
+    <footer class="container-fluid bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row gy-2 align-items-center">
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-start">Mangilik El 51/2, Astana | Phone: <a class="link-warning" href="tel:+77003968940">+7 700 396 8940</a></p>
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-end">&copy; 2026 LOGOVO Barbershop.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
