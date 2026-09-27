@@ -6,106 +6,146 @@
     <meta name="description" content="Photos of LOGOVO barbershop - interior, barber workplace and 2GIS Awards 2025.">
     <meta name="author" content="Rustem Gazymbekov">
     <title>Gallery | LOGOVO Barbershop</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/rustem.css">
+    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <!-- Author: Rustem Gazymbekov -->
 
-    <header>
-        <img class="site-logo" src="images/logo.png" alt="LOGOVO logo" width="90">
-        <h1>LOGOVO Barbershop</h1>
-        <p class="tagline">Gallery</p>
+    <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
+        <div class="container">
+            <img class="rounded-circle border border-3 border-warning bg-white mb-3" src="images/logo.png" alt="LOGOVO logo" width="90" height="90">
+            <h1 class="display-5 text-uppercase mb-0">LOGOVO Barbershop</h1>
+            <p class="lead text-warning mb-0 d-none d-sm-block">Gallery</p>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services &amp; Prices</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services &amp; Prices</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
+    <!-- container-fluid here, container on the six other pages: this page is only photos,
+         so the grid of pictures is allowed to use the whole width of the window instead of
+         stopping at the container. The text above it is still held in a narrow column. -->
+    <main class="container-fluid px-3 px-md-5 py-5">
         <section id="gallery-intro">
-            <h2>Inside LOGOVO</h2>
-            <p>
-                All photos on this page were taken by us when we visited
-                <em>LOGOVO</em> on 13 September 2026. More about the barbershop
-                is on the <a href="about.html">&quot;About Us&quot;</a> page,
-                and the prices are on the <a href="services.html">&quot;Services &amp; Prices&quot;</a> page.
-                The photos are <a href="#photos">below</a>. We chose four photos that show the workplace, the products, the awards and the waiting area.
-            </p>
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Inside LOGOVO</h2>
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <p class="lead">
+                        All photos on this page were taken by us when we visited
+                        <em>LOGOVO</em> on 13 September 2026.
+                    </p>
+                    <p>
+                        More about the barbershop is on the <a href="about.html">&quot;About Us&quot;</a> page,
+                        and the prices are on the <a href="services.html">&quot;Services &amp; Prices&quot;</a> page.
+                        The photos are <a href="#photos">below</a>. We chose four photos that show the
+                        workplace, the products, the awards and the waiting area.
+                    </p>
 
-            <p>What you can see in the photos:</p>
-            <ol type="a">
-                <li>Barber workplace
-                    <ul>
-                        <li>clippers and trimmers</li>
-                        <li>scissors and combs</li>
-                    </ul>
-                </li>
-                <li>Products shelf
-                    <ul>
-                        <li>hair wax and conditioner</li>
-                        <li>talc</li>
-                    </ul>
-                </li>
-                <li>Waiting area
-                    <ul>
-                        <li><abbr title="television">TV</abbr> and a game console</li>
-                        <li>a sofa for guests</li>
-                    </ul>
-                </li>
-            </ol>
+                    <p class="mb-2">What you can see in the photos:</p>
+                    <ol type="a">
+                        <li>Barber workplace
+                            <ul>
+                                <li>clippers and trimmers</li>
+                                <li>scissors and combs</li>
+                            </ul>
+                        </li>
+                        <li>Products shelf
+                            <ul>
+                                <li>hair wax and conditioner</li>
+                                <li>talc</li>
+                            </ul>
+                        </li>
+                        <li>Waiting area
+                            <ul>
+                                <li><abbr title="television">TV</abbr> and a game console</li>
+                                <li>a sofa for guests</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </section>
 
-        <section id="photos">
-            <h2>Photos</h2>
-            <!-- every photo is in figure with figcaption, so the caption stays with its photo -->
-            <figure class="photo-card">
-                <img src="images/tools-station.jpg" alt="Barber workplace with clippers, scissors and combs" width="500">
-                <figcaption>Senior barber Akhmadzhon's workplace with his clippers, scissors and combs</figcaption>
-            </figure>
+        <section id="photos" class="mt-5">
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Photos</h2>
+            <!-- every photo is in figure with figcaption, so the caption stays with its photo.
+                 The ratio box and object-fit-cover crop all four to the same shape. -->
+            <div class="row g-4">
+                <figure class="col-12 col-md-6 col-lg-3 mb-0">
+                    <div class="ratio ratio-4x3">
+                        <img class="object-fit-cover rounded shadow-sm" src="images/tools-station.jpg" alt="Barber workplace with clippers, scissors and combs">
+                    </div>
+                    <figcaption class="figure-caption fst-italic mt-2">Senior barber Akhmadzhon's workplace with his clippers, scissors and combs</figcaption>
+                </figure>
 
-            <figure class="photo-card">
-                <img src="images/shelf-products.jpg" alt="Shelf with hair and beard products" width="500">
-                <figcaption>Hair and beard products that our barbers use every day</figcaption>
-            </figure>
+                <figure class="col-12 col-md-6 col-lg-3 mb-0">
+                    <div class="ratio ratio-4x3">
+                        <img class="object-fit-cover rounded shadow-sm" src="images/shelf-products.jpg" alt="Shelf with hair and beard products">
+                    </div>
+                    <figcaption class="figure-caption fst-italic mt-2">Hair and beard products that our barbers use every day</figcaption>
+                </figure>
 
-            <figure class="photo-card">
-                <img src="images/awards-shelf.jpg" alt="Two 2GIS Awards 2025 on a glass shelf" width="500">
-                <figcaption>Two 2GIS Awards 2025 for the best barbershop in the category</figcaption>
-            </figure>
+                <figure class="col-12 col-md-6 col-lg-3 mb-0">
+                    <div class="ratio ratio-4x3">
+                        <img class="object-fit-cover rounded shadow-sm" src="images/awards-shelf.jpg" alt="Two 2GIS Awards 2025 on a glass shelf">
+                    </div>
+                    <figcaption class="figure-caption fst-italic mt-2">Two 2GIS Awards 2025 for the best barbershop in the category</figcaption>
+                </figure>
 
-            <figure class="photo-card">
-                <img src="images/lounge.jpg" alt="Waiting area with a TV, a game console and a sofa" width="500">
-                <figcaption>Waiting area for our guests</figcaption>
-            </figure>
+                <figure class="col-12 col-md-6 col-lg-3 mb-0">
+                    <div class="ratio ratio-4x3">
+                        <img class="object-fit-cover rounded shadow-sm" src="images/lounge.jpg" alt="Waiting area with a TV, a game console and a sofa">
+                    </div>
+                    <figcaption class="figure-caption fst-italic mt-2">Waiting area for our guests</figcaption>
+                </figure>
+            </div>
         </section>
 
-        <!-- span here because we only want to mark 3 words in the sentence, and strong or em do not fit by meaning -->
-        <p>
-            Want to see it yourself? <span class="highlight-text">Come to us</span> at Mangilik El 51/2,
-            we are open every day from 10:00 to 21:00.
-        </p>
+        <div class="row mt-5">
+            <div class="col-12 col-lg-8">
+                <!-- span here because we only want to mark 3 words in the sentence, and strong or em do not fit by meaning -->
+                <p>
+                    Want to see it yourself? <span class="text-primary text-uppercase fw-bold">Come to us</span> at Mangilik El 51/2,
+                    we are open every day from 10:00 to 21:00.
+                </p>
+                <p class="mb-0">
+                    More reviews about us are on
+                    <a href="https://2gis.kz/astana/search/%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE/firm/70000001061804531/71.422227%2C51.09529?m=71.422227%2C51.09529%2F14.86" target="_blank" rel="noopener noreferrer">2GIS</a>.
+                </p>
+            </div>
+        </div>
 
-        <p>
-            More reviews about us are on
-            <a href="https://2gis.kz/astana/search/%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE/firm/70000001061804531/71.422227%2C51.09529?m=71.422227%2C51.09529%2F14.86" target="_blank" rel="noopener noreferrer">2GIS</a>.
-        </p>
-
-        <a class="top-link" href="booking.html">Book a visit</a>
+        <a class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html">Book a visit</a>
     </main>
 
-    <footer>
-        <p>Mangilik El 51/2, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
-        <p>&copy; 2026 LOGOVO Barbershop.</p>
+    <footer class="container-fluid bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row gy-2 align-items-center">
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-start">Mangilik El 51/2, Astana | Phone: <a class="link-warning" href="tel:+77003968940">+7 700 396 8940</a></p>
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-end">&copy; 2026 LOGOVO Barbershop.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
