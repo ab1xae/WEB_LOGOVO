@@ -6,166 +6,224 @@
     <meta name="description" content="Price list of LOGOVO barbershop: haircuts, beard styling, tinting and perms.">
     <meta name="author" content="Abylay Utemis">
     <title>Services &amp; Prices | LOGOVO Barbershop</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/abylay.css">
+    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <!-- Author: Abylay Utemis -->
 
-    <header>
-        <img class="site-logo" src="images/logo.png" alt="LOGOVO logo" width="90">
-        <h1>LOGOVO Barbershop</h1>
-        <p class="tagline">Services &amp; Prices</p>
+    <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
+        <div class="container">
+            <img class="rounded-circle border border-3 border-warning bg-white mb-3" src="images/logo.png" alt="LOGOVO logo" width="90" height="90">
+            <h1 class="display-5 text-uppercase mb-0">LOGOVO Barbershop</h1>
+            <p class="lead text-warning mb-0 d-none d-sm-block">Services &amp; Prices</p>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services &amp; Prices</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="services.html">Services &amp; Prices</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
+    <!-- container and not container-fluid: the price table is easier to read when it
+         stops at the container width; a table stretched over a wide monitor is not -->
+    <main class="container py-5">
         <section id="services-intro">
-            <h2>Our Services</h2>
-            <p>
-                <img class="float-photo" src="images/price-list.jpg" alt="LOGOVO price list on the stand" width="320">
-                In LOGOVO (the word <i>logovo</i> means "lair" in Russian) the price depends
-                on the barber's level: <b>top</b> or <b>senior</b>.
-                A haircut from a top or senior barber includes <a href="#gift">a free bonus</a>.
-                The steps of a visit are in <a href="#visit-steps">&quot;How a Visit Works&quot;</a>.
-            </p>
-            <p>
-                <strong>Every Tuesday is <mark>Student Day</mark></strong>: a men's haircut
-                costs 500 tg less. On the price list it is called <q>Student Day</q>.
-                Prices are in tenge (<abbr title="tenge, the currency of Kazakhstan">tg</abbr>),
-                for example 3000&ndash;5000 tg for a men's haircut. <em>Kids pay less.</em>
-            </p>
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Our Services</h2>
+            <div class="row g-4 align-items-start">
+                <div class="col-12 col-md-5 col-lg-4">
+                    <img class="img-fluid rounded shadow-sm" src="images/price-list.jpg" alt="LOGOVO price list on the stand">
+                </div>
 
-            <ul class="service-list">
-                <li class="service-group">Haircuts
-                    <ul>
-                        <li>Kids (up to 7 years)</li>
-                        <li>Men's (8 years and older)</li>
-                        <li>Long hair</li>
+                <div class="col-12 col-md-7 col-lg-8">
+                    <p>
+                        In LOGOVO (the word <i>logovo</i> means "lair" in Russian) the price depends
+                        on the barber's level: <b>top</b> or <b>senior</b>.
+                        A haircut from a top or senior barber includes <a href="#gift">a free bonus</a>.
+                        The steps of a visit are in <a href="#visit-steps">&quot;How a Visit Works&quot;</a>.
+                    </p>
+                    <p>
+                        <strong>Every Tuesday is <mark>Student Day</mark></strong>: a men's haircut
+                        costs 500 tg less. On the price list it is called <q>Student Day</q>.
+                        Prices are in tenge (<abbr title="tenge, the currency of Kazakhstan">tg</abbr>),
+                        for example 3000&ndash;5000 tg for a men's haircut. <em>Kids pay less.</em>
+                    </p>
+
+                    <!-- NESTED GRID: this row sits inside the col-md-7 col-lg-8 above, so the
+                         three cards share the width of that column and not of the whole page.
+                         One card wide on a phone, two from 576px, three from 992px. -->
+                    <ul class="row g-3 list-unstyled mb-0">
+                        <li class="col-12 col-sm-6 col-lg-4">
+                            <div class="card h-100 border-start border-4 border-warning shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="card-title h6 text-uppercase">Haircuts</h3>
+                                    <ul class="mb-0 ps-3 small">
+                                        <li>Kids (up to 7 years)</li>
+                                        <li>Men's (8 years and older)</li>
+                                        <li>Long hair</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-12 col-sm-6 col-lg-4">
+                            <div class="card h-100 border-start border-4 border-warning shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="card-title h6 text-uppercase">Beard</h3>
+                                    <ul class="mb-0 ps-3 small">
+                                        <li>Beard styling</li>
+                                        <li>Beard tinting</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-12 col-sm-6 col-lg-4">
+                            <div class="card h-100 border-start border-4 border-warning shadow-sm">
+                                <div class="card-body">
+                                    <h3 class="card-title h6 text-uppercase">Other</h3>
+                                    <ul class="mb-0 ps-3 small">
+                                        <li>Hair tinting</li>
+                                        <li>Facial cleansing</li>
+                                        <li>Perm + haircut</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
-                </li>
-                <li class="service-group">Beard
-                    <ul>
-                        <li>Beard styling</li>
-                        <li>Beard tinting</li>
-                    </ul>
-                </li>
-                <li class="service-group">Other
-                    <ul>
-                        <li>Hair tinting</li>
-                        <li>Facial cleansing</li>
-                        <li>Perm + haircut</li>
-                    </ul>
-                </li>
-            </ul>
+                </div>
+            </div>
         </section>
 
-        <section id="price-table">
-            <h2>Price List</h2>
-            <p class="offer-badge">Tuesday: Student Day</p>
-            <!-- prices are in a table because every service has 3 prices, a list would be hard to read -->
-            <table class="price-table">
-                <caption>Prices of LOGOVO Barbershop in tenge (tg), September 2026<sup>*</sup></caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Service</th>
-                        <th scope="col">Top Barber</th>
-                        <th scope="col">Senior Barber</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Kids haircut (up to 7 years)</th>
-                        <td>3000 tg</td>
-                        <td>4000 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Men's haircut (8 years and older)</th>
-                        <td>4000 tg</td>
-                        <td>5000 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Long hair haircut</th>
-                        <td>5000 tg</td>
-                        <td>6000 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Haircut + beard styling</th>
-                        <td>7000 tg</td>
-                        <td>9000 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Beard styling</th>
-                        <td>3000 tg</td>
-                        <td>4000 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Hair tinting</th>
-                        <td>4000 tg</td>
-                        <td>5000 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Beard tinting</th>
-                        <td>3000 tg</td>
-                        <td>4000 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Tuesday "Student Day" offer</th>
-                        <td>3500 tg</td>
-                        <td>4500 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Facial cleansing</th>
-                        <td>4000 tg</td>
-                        <td>5000 tg</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Perm + haircut</th>
-                        <td>20000 tg</td>
-                        <td>20000 tg</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p id="gift"><small>Free bonus with a top or senior barber: face mask, head massage, waxing.</small></p>
-            <p><small><sup>*</sup> Prices can change on offer days. Reviews are on <a href="https://2gis.kz/astana/search/%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE/firm/70000001061804531/71.422227%2C51.09529?m=71.422227%2C51.09529%2F14.86" target="_blank" rel="noopener noreferrer">2GIS</a>, where LOGOVO got two <cite>2GIS Awards</cite> in 2025.</small></p>
+        <section id="price-table" class="mt-5">
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Price List</h2>
+            <!-- the gold badge we positioned by hand is now a Bootstrap alert -->
+            <p class="alert alert-warning text-center fw-bold text-uppercase">&#9733; Tuesday: Student Day</p>
+            <!-- prices are in a table because every service has 3 prices, a list would be hard
+                 to read. table-responsive: on a phone the table scrolls inside its own box
+                 instead of pushing the whole page sideways. -->
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered align-middle caption-top mb-3">
+                    <caption class="fw-bold text-body">Prices of LOGOVO Barbershop in tenge (tg), September 2026<sup>*</sup></caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Service</th>
+                            <th scope="col" class="text-end">Top Barber</th>
+                            <th scope="col" class="text-end">Senior Barber</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Kids haircut (up to 7 years)</th>
+                            <td class="text-end">3000 tg</td>
+                            <td class="text-end">4000 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Men's haircut (8 years and older)</th>
+                            <td class="text-end">4000 tg</td>
+                            <td class="text-end">5000 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Long hair haircut</th>
+                            <td class="text-end">5000 tg</td>
+                            <td class="text-end">6000 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Haircut + beard styling</th>
+                            <td class="text-end">7000 tg</td>
+                            <td class="text-end">9000 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Beard styling</th>
+                            <td class="text-end">3000 tg</td>
+                            <td class="text-end">4000 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Hair tinting</th>
+                            <td class="text-end">4000 tg</td>
+                            <td class="text-end">5000 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Beard tinting</th>
+                            <td class="text-end">3000 tg</td>
+                            <td class="text-end">4000 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tuesday "Student Day" offer</th>
+                            <td class="text-end">3500 tg</td>
+                            <td class="text-end">4500 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Facial cleansing</th>
+                            <td class="text-end">4000 tg</td>
+                            <td class="text-end">5000 tg</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Perm + haircut</th>
+                            <td class="text-end">20000 tg</td>
+                            <td class="text-end">20000 tg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p id="gift" class="text-body-secondary small mb-1">Free bonus with a top or senior barber: face mask, hair wax and a head massage.</p>
+            <p class="text-body-secondary small">
+                <sup>*</sup> Prices can change on offer days. Reviews are on
+                <a href="https://2gis.kz/astana/search/%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE/firm/70000001061804531/71.422227%2C51.09529?m=71.422227%2C51.09529%2F14.86" target="_blank" rel="noopener noreferrer">2GIS</a>,
+                where LOGOVO got two <cite>2GIS Awards</cite> in 2025.
+            </p>
         </section>
 
-        <hr>
+        <hr class="my-5">
 
         <section id="visit-steps">
-            <h2>How a Visit Works</h2>
-            <!-- ol and not ul because the steps go in order -->
-            <ol type="1" class="step-list">
-                <li>Choose a service and a barber in the <a href="booking.html">booking form</a>.</li>
-                <li>Come at your time to Mangilik El 51/2.</li>
-                <li>The barber asks what you want and does the job.</li>
-                <li>With a top or senior barber you get the free bonus.</li>
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-3">How a Visit Works</h2>
+            <!-- ol and not ul because the steps go in order. list-group-numbered draws the
+                 numbers, so we need neither the browser markers nor our own counters. -->
+            <ol class="list-group list-group-numbered shadow-sm">
+                <li class="list-group-item">Choose a service and a barber in the <a href="booking.html">booking form</a>.</li>
+                <li class="list-group-item">Come at your time to Mangilik El 51/2.</li>
+                <li class="list-group-item">The barber asks what you want and does the job.</li>
+                <li class="list-group-item">With a top or senior barber you get the free bonus.</li>
             </ol>
         </section>
 
-        <figure class="photo-frame">
-            <img src="images/tools-station.jpg" alt="Barber workplace with clippers, scissors and combs" width="500">
-            <figcaption>The tools our barbers work with</figcaption>
-        </figure>
+        <div class="row mt-5">
+            <div class="col-12 col-md-9 col-lg-7">
+                <figure class="figure w-100 mb-0">
+                    <img class="figure-img img-fluid rounded shadow-sm mb-2" src="images/tools-station.jpg" alt="Barber workplace with clippers, scissors and combs">
+                    <figcaption class="figure-caption fst-italic">The tools our barbers work with</figcaption>
+                </figure>
+            </div>
+        </div>
 
-        <a class="book-cta" href="booking.html">Book a visit</a>
+        <!-- position-fixed keeps the call to action on screen while the price list scrolls -->
+        <a class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html">Book a visit</a>
     </main>
 
-    <footer>
-        <p>Mangilik El 51/2, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
-        <p>&copy; 2026 LOGOVO Barbershop.</p>
+    <footer class="container-fluid bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row gy-2 align-items-center">
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-start">Mangilik El 51/2, Astana | Phone: <a class="link-warning" href="tel:+77003968940">+7 700 396 8940</a></p>
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-end">&copy; 2026 LOGOVO Barbershop.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

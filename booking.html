@@ -6,167 +6,211 @@
     <meta name="description" content="Online booking at LOGOVO barbershop - choose a service, a barber and a time.">
     <meta name="author" content="Abylay Utemis">
     <title>Booking | LOGOVO Barbershop</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/abylay.css">
+    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 <!-- Author: Abylay Utemis -->
 
-    <header>
-        <img class="site-logo" src="images/logo.png" alt="LOGOVO logo" width="90">
-        <h1>LOGOVO Barbershop</h1>
-        <p class="tagline">Booking</p>
+    <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
+        <div class="container">
+            <img class="rounded-circle border border-3 border-warning bg-white mb-3" src="images/logo.png" alt="LOGOVO logo" width="90" height="90">
+            <h1 class="display-5 text-uppercase mb-0">LOGOVO Barbershop</h1>
+            <p class="lead text-warning mb-0 d-none d-sm-block">Booking</p>
+        </div>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services &amp; Prices</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
+        <div class="container">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav mx-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services &amp; Prices</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="booking.html">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
-        <section id="booking-intro">
-            <h2>Book Your Visit</h2>
-            <p>
-                Fill in the form below to book a time with one of our barbers.
-                All services and prices are on the <a href="services.html">"Services &amp; Prices"</a> page.
-                If you want to call us, our number is <a href="tel:+77003968940">+7 700 396 8940</a>.
-                You can also write to <a href="mailto:logovo.barbershop@mail.ru">logovo.barbershop@mail.ru</a>.
-            </p>
-        </section>
+    <!-- container and not container-fluid: a booking form is easier to fill in when the
+         fields stay in a readable column instead of stretching over the whole monitor -->
+    <main class="container py-5">
+        <div class="row g-4 g-lg-5">
+            <div class="col-12 col-lg-7">
+                <section id="booking-intro">
+                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Book Your Visit</h2>
+                    <p class="lead">
+                        Fill in the form below to book a time with one of our barbers.
+                    </p>
+                    <p>
+                        All services and prices are on the <a href="services.html">&quot;Services &amp; Prices&quot;</a> page.
+                        If you want to call us, our number is <a href="tel:+77003968940">+7 700 396 8940</a>.
+                        You can also write to <a href="mailto:logovo.barbershop@mail.ru">logovo.barbershop@mail.ru</a>.
+                    </p>
+                </section>
 
-        <article id="barber-levels">
-            <h2>Which barber to choose</h2>
-            <p>In the form you choose the level of the barber:</p>
-            <dl class="barber-levels">
-                <dt>Top barber</dt>
-                <dd>The basic level, includes the free bonus.</dd>
+                <article id="barber-levels" class="mt-5">
+                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Which barber to choose</h2>
+                    <p>In the form you choose the level of the barber:</p>
+                    <!-- dl with the row class: Bootstrap turns the pairs into two columns
+                         from 576px up and stacks them on a phone -->
+                    <dl class="row bg-white border rounded shadow-sm p-3 mb-0">
+                        <dt class="col-12 col-sm-4 text-primary">Top barber</dt>
+                        <dd class="col-12 col-sm-8 mb-2">The basic level, includes the free bonus.</dd>
 
-                <dt>Senior barber</dt>
-                <dd>The highest level and the most experience, also with the free bonus.</dd>
-            </dl>
-        </article>
+                        <dt class="col-12 col-sm-4 text-primary">Senior barber</dt>
+                        <dd class="col-12 col-sm-8 mb-0">The highest level and the most experience, also with the free bonus.</dd>
+                    </dl>
+                </article>
 
-        <section id="why-us">
-            <h2>Why our barbers</h2>
-            <p>We asked senior barber Akhmadzhon Ibrokhimov what is the hardest part of his job:</p>
-            <blockquote class="quote-box" cite="">
-                <p>You listen to the problems of every client and with all your heart find a way to solve them.</p>
-                <footer>- Akhmadzhon Ibrokhimov, senior barber, 13 September 2026</footer>
-            </blockquote>
-        </section>
+                <section id="why-us" class="mt-5">
+                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Why our barbers</h2>
+                    <p>We asked senior barber Akhmadzhon Ibrokhimov what is the hardest part of his job:</p>
+                    <!-- blockquote because this is a real quote. The dash in front of the name
+                         is drawn by the blockquote-footer class, so we removed our own one. -->
+                    <blockquote class="blockquote bg-white border-start border-4 border-warning rounded shadow-sm p-3 fs-6 fst-italic">
+                        <p>You listen to the problems of every client and with all your heart find a way to solve them.</p>
+                        <footer class="blockquote-footer mb-0">Akhmadzhon Ibrokhimov, senior barber, 13 September 2026</footer>
+                    </blockquote>
+                </section>
+            </div>
 
-        <aside class="tip-box">
-            <h2>Tips</h2>
-            <p>
-                Come 5 minutes before your time. Press <kbd>Tab</kbd> to move between the fields.
-                The form does not send anything yet; later the server will answer with
-                <samp>Thank you! We will call you back.</samp>
-            </p>
-        </aside>
+            <div class="col-12 col-lg-5">
+                <!-- aside because these are extra hints, not the main text.
+                     Bootstrap alert instead of the box we drew by hand. -->
+                <aside class="alert alert-secondary">
+                    <h2 class="alert-heading h5">Tips</h2>
+                    <p class="mb-0">
+                        Come 5 minutes before your time. Press <kbd>Tab</kbd> to move between the fields.
+                        The form does not send anything yet; later the server will answer with
+                        <samp>Thank you! We will call you back.</samp>
+                    </p>
+                </aside>
 
-        <figure class="photo-frame">
-            <img src="images/facade.jpg" alt="Entrance to LOGOVO barbershop with a sign on the building" width="500">
-            <figcaption>The entrance from Mangilik El street</figcaption>
-        </figure>
+                <figure class="figure w-100 mt-4">
+                    <img class="figure-img img-fluid rounded shadow-sm mb-2" src="images/facade.jpg" alt="Entrance to LOGOVO barbershop with a sign on the building">
+                    <figcaption class="figure-caption fst-italic">The entrance from Mangilik El street</figcaption>
+                </figure>
+            </div>
+        </div>
 
-        <section id="booking-form">
-            <h2>Booking Form</h2>
-            <form class="booking-form" method="post" action="#">
-                <!-- there is no server yet, so the form does not send anything -->
-
+        <section id="booking-form" class="mt-5">
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Booking Form</h2>
+            <!-- there is no server yet, so the form does not send anything.
+                 The form itself is the row: two fieldsets side by side from 992px,
+                 one under the other on a phone and a tablet. -->
+            <form class="row g-4" method="post" action="#">
                 <!-- two fieldsets: one for contacts, one for the visit, so the form is easier to read -->
-                <fieldset>
-                    <legend>Your Contacts</legend>
+                <div class="col-12 col-lg-6">
+                    <fieldset class="bg-white border rounded shadow-sm p-3 h-100">
+                        <legend class="float-none w-auto fs-5 px-2 text-primary">Your Contacts</legend>
 
-                    <p>
-                        <label for="client-name">Name</label><br>
-                        <input type="text" id="client-name" name="client-name" placeholder="Your name" required>
-                    </p>
+                        <p class="mb-3">
+                            <label class="form-label" for="client-name">Name</label>
+                            <input class="form-control" type="text" id="client-name" name="client-name" placeholder="Your name" required>
+                        </p>
 
-                    <p>
-                        <label for="client-email">Email</label><br>
-                        <input type="email" id="client-email" name="client-email" placeholder="example@mail.com" required>
-                    </p>
+                        <p class="mb-3">
+                            <label class="form-label" for="client-email">Email</label>
+                            <input class="form-control" type="email" id="client-email" name="client-email" placeholder="example@mail.com" required>
+                        </p>
 
-                    <p>
-                        <label for="client-phone">Phone</label><br>
-                        <input type="tel" id="client-phone" name="client-phone" placeholder="+7 700 000 0000" required>
-                    </p>
-                </fieldset>
+                        <p class="mb-0">
+                            <label class="form-label" for="client-phone">Phone</label>
+                            <input class="form-control" type="tel" id="client-phone" name="client-phone" placeholder="+7 700 000 0000" required>
+                        </p>
+                    </fieldset>
+                </div>
 
-                <fieldset>
-                    <legend>Visit Details</legend>
+                <div class="col-12 col-lg-6">
+                    <fieldset class="bg-white border rounded shadow-sm p-3 h-100">
+                        <legend class="float-none w-auto fs-5 px-2 text-primary">Visit Details</legend>
 
-                    <p>
-                        <label for="visit-date">Date</label><br>
-                        <input type="date" id="visit-date" name="visit-date" required>
-                    </p>
+                        <p class="mb-3">
+                            <label class="form-label" for="visit-date">Date</label>
+                            <input class="form-control" type="date" id="visit-date" name="visit-date" required>
+                        </p>
 
-                    <p>
-                        <label for="people-count">Number of people</label><br>
-                        <input type="number" id="people-count" name="people-count" min="1" max="5" value="1">
-                    </p>
+                        <p class="mb-3">
+                            <label class="form-label" for="people-count">Number of people</label>
+                            <input class="form-control" type="number" id="people-count" name="people-count" min="1" max="5" value="1">
+                        </p>
 
-                    <p>Barber level</p>
-                    <!-- radio and not checkbox because you can choose only one barber -->
-                    <p>
-                        <input type="radio" id="barber-top" name="barber-level" value="top" checked>
-                        <label for="barber-top">Top Barber</label><br>
+                        <p class="form-label mb-1">Barber level</p>
+                        <!-- radio and not checkbox because you can choose only one barber -->
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="barber-top" name="barber-level" value="top" checked>
+                                <label class="form-check-label" for="barber-top">Top Barber</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="barber-senior" name="barber-level" value="senior">
+                                <label class="form-check-label" for="barber-senior">Senior Barber</label>
+                            </div>
+                        </div>
 
-                        <input type="radio" id="barber-senior" name="barber-level" value="senior">
-                        <label for="barber-senior">Senior Barber</label>
-                    </p>
+                        <p class="mb-3">
+                            <label class="form-label" for="service-select">Service</label>
+                            <select class="form-select" id="service-select" name="service-select">
+                                <option value="haircut">Men's haircut</option>
+                                <option value="haircut-long">Long hair haircut</option>
+                                <option value="haircut-beard">Haircut + beard</option>
+                                <option value="beard">Beard styling</option>
+                                <option value="tint-hair">Hair tinting</option>
+                                <option value="facial">Facial cleansing</option>
+                                <option value="perm">Perm + haircut</option>
+                            </select>
+                        </p>
 
-                    <p>
-                        <label for="service-select">Service</label><br>
-                        <select id="service-select" name="service-select">
-                            <option value="haircut">Men's haircut</option>
-                            <option value="haircut-long">Long hair haircut</option>
-                            <option value="haircut-beard">Haircut + beard</option>
-                            <option value="beard">Beard styling</option>
-                            <option value="tint-hair">Hair tinting</option>
-                            <option value="facial">Facial cleansing</option>
-                            <option value="perm">Perm + haircut</option>
-                        </select>
-                    </p>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="agree-gift" name="agree-gift">
+                                <label class="form-check-label" for="agree-gift">I want the free bonus (only for top and senior barbers)</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="agree-sms" name="agree-sms" checked>
+                                <label class="form-check-label" for="agree-sms">Send me an <abbr title="Short Message Service">SMS</abbr> one hour before the visit</label>
+                            </div>
+                        </div>
 
-                    <p>
-                        <input type="checkbox" id="agree-gift" name="agree-gift">
-                        <label for="agree-gift">I want the free bonus (only for top and senior barbers)</label>
-                    </p>
+                        <p class="mb-0">
+                            <label class="form-label" for="comment">Comment</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="What haircut you want, allergies, etc."></textarea>
+                        </p>
+                    </fieldset>
+                </div>
 
-                    <p>
-                        <input type="checkbox" id="agree-sms" name="agree-sms" checked>
-                        <label for="agree-sms">Send me an <abbr title="Short Message Service">SMS</abbr> one hour before the visit</label>
-                    </p>
-
-                    <p>
-                        <label for="comment">Comment</label><br>
-                        <textarea id="comment" name="comment" rows="4" cols="40" placeholder="What haircut you want, allergies, etc."></textarea>
-                    </p>
-                </fieldset>
-
-                <p class="form-actions">
-                    <button type="submit">Book</button>
-                    <button type="reset">Clear</button>
+                <p class="col-12 d-flex flex-wrap justify-content-center align-items-center gap-2 mb-0">
+                    <button type="submit" class="btn btn-primary">Book</button>
+                    <button type="reset" class="btn btn-outline-secondary">Clear</button>
+                    <!-- disabled state: paying online is not open yet. It is a real form
+                         control, so a screen reader announces it as disabled. -->
+                    <button type="button" class="btn btn-secondary btn-sm" disabled>Pay online (soon)</button>
                 </p>
             </form>
         </section>
 
-        <a class="book-cta" href="tel:+77003968940">Call us</a>
+        <a class="btn btn-outline-dark btn-sm bg-body shadow position-fixed bottom-0 end-0 m-3" href="tel:+77003968940">Call us</a>
     </main>
 
-    <footer>
-        <p>Mangilik El 51/2, Astana | Phone: <a href="tel:+77003968940">+7 700 396 8940</a></p>
-        <p>&copy; 2026 LOGOVO Barbershop.</p>
+    <footer class="container-fluid bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row gy-2 align-items-center">
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-start">Mangilik El 51/2, Astana | Phone: <a class="link-warning" href="tel:+77003968940">+7 700 396 8940</a></p>
+                <p class="col-12 col-md-6 mb-0 small text-center text-md-end">&copy; 2026 LOGOVO Barbershop.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
