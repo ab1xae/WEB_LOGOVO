@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The barbers of LOGOVO barbershop in Astana: top and senior barbers, their prices, hair designs and the free gift.">
-    <meta name="author" content="Alfarabi">
-    <title>Our Barbers | LOGOVO Barbershop</title>
-    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
+    <meta name="author" content="LOGOVO Barbershop">
+    <title>Team | LOGOVO Barbershop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
-<!-- Author: Alfarabi -->
+    <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
 
     <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
         <div class="container">
             <img class="rounded-circle border border-3 border-warning bg-white mb-3" src="images/logo.png" alt="LOGOVO logo" width="90" height="90">
             <h1 class="display-5 text-uppercase mb-0">LOGOVO Barbershop</h1>
-            <p class="lead text-warning mb-0 d-none d-sm-block">Our Barbers</p>
+            <p class="lead text-warning mb-0 d-none d-sm-block">Team</p>
         </div>
     </header>
 
     <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <button id="menu-toggle" class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
+            <div class="collapse navbar-collapse" id="main-menu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services &amp; Prices</a></li>
@@ -40,9 +40,7 @@
         </div>
     </nav>
 
-    <!-- container and not container-fluid: six barber cards and two price lists read
-         better in a held-in column than stretched across a wide monitor -->
-    <main class="container py-5">
+    <main id="main" class="container py-5">
         <section id="team-intro">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Who Cuts Your Hair</h2>
             <div class="row g-4 align-items-start">
@@ -51,13 +49,13 @@
                 </div>
                 <div class="col-12 col-md-7 col-lg-8">
                     <p class="lead">
-                        In LOGOVO there are two levels of barbers: <strong>top</strong> and <strong>senior</strong>.
+                        In LOGOVO there are three levels of barbers: <strong>lead</strong>, <strong>top</strong> and <strong>senior</strong>.
                         The level depends on the experience of the barber and the price depends on the level.
                     </p>
                     <p>
-                        Every barber works 3 years or more. Below are the barbers of each level
-                        and the prices. You can choose the level of the barber in the
-                        <a href="booking.html">booking form</a>.
+                        Every barber works 3 years or more. Below are some of our barbers of each level
+                        and the prices. You can choose a barber or just the level in the
+                        <a href="booking.html#booking">booking form</a>.
                     </p>
                     <p class="mb-0">
                         Prices are in tenge (<abbr title="tenge, the currency of Kazakhstan">tg</abbr>).
@@ -67,48 +65,94 @@
             </div>
         </section>
 
+        <section id="lead-barbers" class="bg-white border rounded shadow-sm p-3 p-md-4 mt-5">
+            <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Lead Barbers</h2>
+
+            <!-- Bootstrap card component -->
+            <ul class="row g-4 list-unstyled mb-4">
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-daniyar">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">D</span>
+                            <h3 class="card-title h5 mb-3">Daniyar</h3>
+                            <a id="book-daniyar" class="btn btn-warning btn-sm" href="booking.html?barber=daniyar#booking">Book with Daniyar</a>
+                        </div>
+                        <p class="badge text-bg-secondary position-absolute top-0 end-0 m-2">Lead</p>
+                    </div>
+                </li>
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-arman">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">A</span>
+                            <h3 class="card-title h5 mb-3">Arman</h3>
+                            <a id="book-arman" class="btn btn-warning btn-sm" href="booking.html?barber=arman#booking">Book with Arman</a>
+                        </div>
+                        <p class="badge text-bg-secondary position-absolute top-0 end-0 m-2">Lead</p>
+                    </div>
+                </li>
+                <li class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-yerassyl">
+                        <div class="card-body">
+                            <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">Y</span>
+                            <h3 class="card-title h5 mb-3">Yerassyl</h3>
+                            <a id="book-yerassyl" class="btn btn-warning btn-sm" href="booking.html?barber=yerassyl#booking">Book with Yerassyl</a>
+                        </div>
+                        <p class="badge text-bg-secondary position-absolute top-0 end-0 m-2">Lead</p>
+                    </div>
+                </li>
+            </ul>
+
+            <h3 class="h5">Prices of a Lead Barber</h3>
+            <dl class="row bg-body border rounded p-3 mb-3">
+                <dt class="col-8 col-sm-9">Haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">3000 tg</dd>
+                <dt class="col-8 col-sm-9">Long hair haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">4000 tg</dd>
+                <dt class="col-8 col-sm-9">Beard styling</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">2000 tg</dd>
+                <dt class="col-8 col-sm-9">Kids haircut</dt>
+                <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-0">2000 tg</dd>
+            </dl>
+            <p class="alert alert-secondary mb-0">The lead level has the lowest prices. The free gift comes only with a top or senior barber.</p>
+        </section>
+
         <section id="top-barbers" class="bg-white border rounded shadow-sm p-3 p-md-4 mt-5">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Top Barbers</h2>
 
-            <!-- BOOTSTRAP COMPONENT: CARD, taken from the Cards page of the documentation.
-                 What we changed: we have no photos of the barbers, so in place of the card
-                 image there is the first letter of the name in a gold circle built from the
-                 rounded-circle, bg-warning and d-flex utilities; the level moved into a badge
-                 pinned to the corner of the card; h-100 makes all cards in the row equally
-                 tall; the cards sit in li elements because the barbers are a list. -->
             <ul class="row g-4 list-unstyled mb-4">
                 <li class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-nurbakyt">
                         <div class="card-body">
                             <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">N</span>
-                            <h3 class="card-title h5 mb-0">Nurbakyt</h3>
+                            <h3 class="card-title h5 mb-3">Nurbakyt</h3>
+                            <a id="book-nurbakyt" class="btn btn-warning btn-sm" href="booking.html?barber=nurbakyt#booking">Book with Nurbakyt</a>
                         </div>
                         <p class="badge text-bg-dark position-absolute top-0 end-0 m-2">Top</p>
                     </div>
                 </li>
                 <li class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-baktybay">
                         <div class="card-body">
                             <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">B</span>
-                            <h3 class="card-title h5 mb-0">Baktybay</h3>
+                            <h3 class="card-title h5 mb-3">Baktybay</h3>
+                            <a id="book-baktybay" class="btn btn-warning btn-sm" href="booking.html?barber=baktybay#booking">Book with Baktybay</a>
                         </div>
                         <p class="badge text-bg-dark position-absolute top-0 end-0 m-2">Top</p>
                     </div>
                 </li>
                 <li class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-ilyas">
                         <div class="card-body">
                             <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">I</span>
-                            <h3 class="card-title h5 mb-0">Ilyas</h3>
+                            <h3 class="card-title h5 mb-3">Ilyas</h3>
+                            <a id="book-ilyas" class="btn btn-warning btn-sm" href="booking.html?barber=ilyas#booking">Book with Ilyas</a>
                         </div>
                         <p class="badge text-bg-dark position-absolute top-0 end-0 m-2">Top</p>
                     </div>
                 </li>
             </ul>
 
-            <h3 class="h5">Prices of a top barber</h3>
-            <!-- dl because every line is a pair "service - price", the row class lines
-                 the pairs up in two columns without any grid of our own -->
+            <h3 class="h5">Prices of a Top Barber</h3>
             <dl class="row bg-body border rounded p-3 mb-3">
                 <dt class="col-8 col-sm-9">Haircut</dt>
                 <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">4000 tg</dd>
@@ -119,45 +163,47 @@
                 <dt class="col-8 col-sm-9">Kids haircut</dt>
                 <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-0">3000 tg</dd>
             </dl>
-            <p class="alert alert-warning border-start border-4 border-warning mb-0">&#9733; Top barbers give a face mask, hair wax and a head massage as a gift with the haircut.</p>
+            <p class="alert alert-warning border-start border-4 border-warning mb-0">&#9733; Top barbers give a face mask, head massage and wax hair removal as a gift with the haircut.</p>
         </section>
 
         <section id="senior-barbers" class="bg-white border rounded shadow-sm p-3 p-md-4 mt-5">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Senior Barbers</h2>
 
-            <!-- the same card, with text-bg-warning on the badge for the senior level -->
             <ul class="row g-4 list-unstyled mb-4">
                 <li class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-akhmadzhon">
                         <div class="card-body">
                             <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">A</span>
                             <h3 class="card-title h5">Akhmadzhon</h3>
-                            <p class="card-text small mb-0">Read his <a href="about.html#quote-source">interview</a> on the About Us page.</p>
+                            <p class="card-text small mb-3">Read his <a href="about.html#quote-source">interview</a> on the About Us page.</p>
+                            <a id="book-akhmadzhon" class="btn btn-warning btn-sm" href="booking.html?barber=akhmadzhon#booking">Book with Akhmadzhon</a>
                         </div>
                         <p class="badge text-bg-warning position-absolute top-0 end-0 m-2">Senior</p>
                     </div>
                 </li>
                 <li class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-shukur">
                         <div class="card-body">
                             <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">S</span>
-                            <h3 class="card-title h5 mb-0">Shukur</h3>
+                            <h3 class="card-title h5 mb-3">Shukur</h3>
+                            <a id="book-shukur" class="btn btn-warning btn-sm" href="booking.html?barber=shukur#booking">Book with Shukur</a>
                         </div>
                         <p class="badge text-bg-warning position-absolute top-0 end-0 m-2">Senior</p>
                     </div>
                 </li>
                 <li class="col-12 col-sm-6 col-lg-4">
-                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm">
+                    <div class="card h-100 text-center border-top border-4 border-warning shadow-sm" id="barber-khan">
                         <div class="card-body">
                             <span class="avatar d-flex align-items-center justify-content-center rounded-circle bg-warning text-dark fs-2 fw-bold mx-auto mb-3">K</span>
-                            <h3 class="card-title h5 mb-0">Khan</h3>
+                            <h3 class="card-title h5 mb-3">Khan</h3>
+                            <a id="book-khan" class="btn btn-warning btn-sm" href="booking.html?barber=khan#booking">Book with Khan</a>
                         </div>
                         <p class="badge text-bg-warning position-absolute top-0 end-0 m-2">Senior</p>
                     </div>
                 </li>
             </ul>
 
-            <h3 class="h5">Prices of a senior barber</h3>
+            <h3 class="h5">Prices of a Senior Barber</h3>
             <dl class="row bg-body border rounded p-3 mb-3">
                 <dt class="col-8 col-sm-9">Haircut</dt>
                 <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-1">5000 tg</dd>
@@ -170,7 +216,7 @@
                 <dt class="col-8 col-sm-9">Combo: haircut + beard</dt>
                 <dd class="col-4 col-sm-3 text-end text-primary fw-bold mb-0">9000 tg</dd>
             </dl>
-            <p class="alert alert-warning border-start border-4 border-warning mb-0">&#9733; Senior barbers give the same gift with the haircut: face mask, hair wax and a head massage.</p>
+            <p class="alert alert-warning border-start border-4 border-warning mb-0">&#9733; Senior barbers give the same gift with the haircut: face mask, head massage and wax hair removal.</p>
         </section>
 
         <section id="hair-designs" class="mt-5">
@@ -182,23 +228,25 @@
                         <div class="card-body">
                             <h3 class="card-title h5">Lightning</h3>
                             <p class="card-text">A short lightning line above the ear or on the back of the head.</p>
-                            <p class="card-text fw-bold text-primary mb-0">500 tg</p>
+                            <p class="card-text fw-bold text-primary">500 tg</p>
+                            <a id="book-design-lightning" class="btn btn-warning btn-sm" href="booking.html?service=haircut&amp;design=lightning#booking">Book a haircut with Lightning</a>
                         </div>
                     </div>
                 </li>
                 <li class="col-12 col-md-6">
-                    <div class="card h-100 border-start border-4 border-primary shadow-sm">
+                    <div class="card h-100 border-start border-4 border-warning shadow-sm">
                         <div class="card-body">
                             <h3 class="card-title h5">Spiderweb</h3>
                             <p class="card-text">A web pattern on the side of the head, it takes more time.</p>
-                            <p class="card-text fw-bold text-primary mb-0">1000 tg</p>
+                            <p class="card-text fw-bold text-primary">1000 tg</p>
+                            <a id="book-design-spiderweb" class="btn btn-warning btn-sm" href="booking.html?service=haircut&amp;design=spiderweb#booking">Book a haircut with Spiderweb</a>
                         </div>
                     </div>
                 </li>
             </ul>
         </section>
 
-        <a class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html">Book a barber</a>
+        <a id="floating-book" class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html#booking">Book a visit</a>
     </main>
 
     <footer class="container-fluid bg-dark text-light py-4 mt-5">
@@ -210,7 +258,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

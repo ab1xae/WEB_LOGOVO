@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The history of LOGOVO barbershop in Astana: why it is called LOGOVO, the wolf emblem, two years of work and the title of the best barbershop of the city.">
-    <meta name="author" content="Alfarabi">
-    <title>Our History | LOGOVO Barbershop</title>
-    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
+    <meta name="author" content="LOGOVO Barbershop">
+    <title>History | LOGOVO Barbershop</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
-<!-- Author: Alfarabi -->
+    <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
 
     <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
         <div class="container">
             <img class="rounded-circle border border-3 border-warning bg-white mb-3" src="images/logo.png" alt="LOGOVO logo" width="90" height="90">
             <h1 class="display-5 text-uppercase mb-0">LOGOVO Barbershop</h1>
-            <p class="lead text-warning mb-0 d-none d-sm-block">Our History</p>
+            <p class="lead text-warning mb-0 d-none d-sm-block">History</p>
         </div>
     </header>
 
     <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <button id="menu-toggle" class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
+            <div class="collapse navbar-collapse" id="main-menu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services &amp; Prices</a></li>
@@ -40,9 +40,7 @@
         </div>
     </nav>
 
-    <!-- container and not container-fluid: this page is a story, and a long line of text
-         running the full width of a wide monitor is tiring to read -->
-    <main class="container py-5">
+    <main id="main" class="container py-5">
         <section id="story">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Two Years of LOGOVO</h2>
             <p class="lead">
@@ -57,13 +55,10 @@
             </p>
         </section>
 
-        <section id="name" class="mt-5">
+        <section id="name-meaning" class="mt-5">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Why LOGOVO</h2>
             <div class="row g-4 align-items-start">
-                <!-- order-md-last: on a phone the emblem comes first, above the text; from
-                     768px up the order utility moves it to the right of the text -->
                 <div class="col-12 col-md-5 col-lg-4 order-md-last">
-                    <!-- the logo is in a figure with a caption, so the caption stays with the image -->
                     <figure class="figure w-100 text-center mb-0">
                         <img class="figure-img img-fluid rounded-circle border border-3 border-warning bg-white mb-2" src="images/logo.png" alt="LOGOVO emblem: a wolf head in tribal style, the name LOGOVO with the letters L and O drawn as straight razors">
                         <figcaption class="figure-caption fst-italic">The LOGOVO emblem on the sign and on the wall</figcaption>
@@ -79,7 +74,6 @@
                         If you look at the sign, the letters <b>L</b> and <b>O</b> are drawn as straight
                         razors, the main tool of a barber.
                     </p>
-                    <!-- dl because every line is a pair "symbol - what it means" -->
                     <dl class="row bg-white border-start border-4 border-warning rounded shadow-sm p-3 mb-0">
                         <dt class="col-12 col-sm-4 text-primary">The wolf</dt>
                         <dd class="col-12 col-sm-8 mb-2">Strength and loyalty to the pack. The wolf is on the wall, on the cups and on the sign.</dd>
@@ -94,8 +88,6 @@
 
         <section id="timeline" class="mt-5">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Milestones</h2>
-            <!-- ol because the milestones go in order of time. One card per row on a phone,
-                 two from 768px and three from 992px. -->
             <ol class="row g-4 list-unstyled mb-0">
                 <li class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100 border-top border-4 border-warning shadow-sm">
@@ -103,7 +95,6 @@
                             <h3 class="card-title h5">Opening</h3>
                             <p class="card-text mb-0">LOGOVO opens at Mangilik El 51/2. First barbers, first clients, the wolf on the wall.</p>
                         </div>
-                        <!-- the year hangs on the card edge, put there by the position utilities -->
                         <p class="badge text-bg-dark position-absolute top-0 start-0 translate-middle-y ms-3">2024</p>
                     </div>
                 </li>
@@ -119,7 +110,7 @@
                 <li class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100 border-top border-4 border-warning shadow-sm bg-warning-subtle">
                         <div class="card-body pt-4">
-                            <h3 class="card-title h5">Best barbershop of Astana</h3>
+                            <h3 class="card-title h5">Best Barbershop of Astana</h3>
                             <p class="card-text mb-0">LOGOVO is named the best barbershop of the city. Now 20 barbers work here, every one with 3 years of experience or more.</p>
                         </div>
                         <p class="badge text-bg-dark position-absolute top-0 start-0 translate-middle-y ms-3">2026</p>
@@ -128,7 +119,6 @@
             </ol>
         </section>
 
-        <!-- aside because this is a short extra box, not part of the story -->
         <aside class="bg-dark text-light rounded shadow p-4 text-center mt-5">
             <h2 class="text-warning h4 mb-3">LOGOVO Today</h2>
             <p class="mb-0">
@@ -138,7 +128,7 @@
             </p>
         </aside>
 
-        <a class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html">Book a visit</a>
+        <a id="floating-book" class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html#booking">Book a visit</a>
     </main>
 
     <footer class="container-fluid bg-dark text-light py-4 mt-5">
@@ -150,7 +140,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
