@@ -1,29 +1,28 @@
-/* LOGOVO - our whole stylesheet, on top of Bootstrap 5.3.8.
-   No layout here: no grid, no float, no positioning, no spacing. */
+/* LOGOVO styles on top of Bootstrap 5.3.8 */
 
-/* our five colours go into the Bootstrap variables, so bg-dark, text-warning,
-   border-warning and the links are ours without repainting anything by hand */
+/* our colours */
 :root {
     --bs-dark-rgb: 31, 31, 31;
     --bs-warning-rgb: 201, 162, 77;
     --bs-primary-rgb: 46, 92, 138;
     --bs-body-bg: #f4efe6;
+    --bs-body-bg-rgb: 244, 239, 230;
     --bs-body-color: #1f1f1f;
     --bs-link-color-rgb: 46, 92, 138;
-    --bs-link-hover-color-rgb: 201, 162, 77;
+    --bs-link-hover-color-rgb: 106, 81, 32;
     --bs-body-font-family: "Segoe UI", Tahoma, Arial, Helvetica, sans-serif;
     --bs-warning-bg-subtle: rgba(201, 162, 77, 0.18);
     --bs-warning-border-subtle: rgba(201, 162, 77, 0.55);
     --bs-warning-text-emphasis: #6a5120;
 }
 
-/* Bootstrap has no variable for the heading font */
+/* heading font */
 h1, h2, h3, h4, h5, h6 {
     font-family: Georgia, "Times New Roman", Times, serif;
     letter-spacing: 0.04em;
 }
 
-/* the buttons keep their colours in their own variables, so we set them again */
+/* button colours */
 .btn-warning {
     --bs-btn-bg: #c9a24d;
     --bs-btn-border-color: #c9a24d;
@@ -33,6 +32,7 @@ h1, h2, h3, h4, h5, h6 {
     --bs-btn-active-border-color: #b08f3f;
     --bs-btn-disabled-bg: #c9a24d;
     --bs-btn-disabled-border-color: #c9a24d;
+    --bs-btn-focus-shadow-rgb: 201, 162, 77;
 }
 
 .btn-primary {
@@ -42,21 +42,40 @@ h1, h2, h3, h4, h5, h6 {
     --bs-btn-hover-border-color: #26496d;
     --bs-btn-active-bg: #26496d;
     --bs-btn-active-border-color: #26496d;
+    --bs-btn-focus-shadow-rgb: 46, 92, 138;
 }
 
-/* same for the navbar; the selector repeats the one Bootstrap uses, so ours wins by order */
+/* form colours */
+.form-check-input:checked {
+    background-color: #2e5c8a;
+    border-color: #2e5c8a;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: #c9a24d;
+    box-shadow: 0 0 0 0.25rem rgba(201, 162, 77, 0.35);
+}
+
+/* footer link hover */
+.link-warning:hover,
+.link-warning:focus {
+    color: #e0c27f !important;
+}
+
+/* menu hover colour */
 .navbar[data-bs-theme="dark"] {
     --bs-navbar-hover-color: #c9a24d;
     --bs-navbar-active-color: #c9a24d;
 }
 
-/* phone sign before tel: links, there is no utility class for generated content */
+/* phone icon before phone links */
 a[href^="tel:"]::before {
     content: "\260E\00a0";
 }
 
-/* we have no photos of the barbers, so the card shows the first letter in a circle.
-   Bootstrap has no fixed-size box utility, the rest is utility classes. */
+/* size of the letter circles on the barber cards */
 .avatar {
     width: 4.5rem;
     height: 4.5rem;
@@ -65,4 +84,33 @@ a[href^="tel:"]::before {
 .avatar-lg {
     width: 7rem;
     height: 7rem;
+}
+
+/* state classes, JS switches them on and off */
+/* no !important, so jQuery fadeIn() can show it */
+.is-hidden {
+    display: none;
+}
+
+.is-active,
+.is-active > * {
+    --bs-table-bg-state: var(--bs-warning-bg-subtle);
+    background-color: var(--bs-warning-bg-subtle);
+}
+
+.is-selected {
+    outline: 3px solid #c9a24d;
+    outline-offset: 3px;
+}
+
+.is-error {
+    color: var(--bs-danger-text-emphasis);
+    background-color: var(--bs-danger-bg-subtle);
+    border: 1px solid var(--bs-danger-border-subtle);
+}
+
+.is-success {
+    color: var(--bs-success-text-emphasis);
+    background-color: var(--bs-success-bg-subtle);
+    border: 1px solid var(--bs-success-border-subtle);
 }
