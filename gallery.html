@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Photos of LOGOVO barbershop - interior, barber workplace and 2GIS Awards 2025.">
-    <meta name="author" content="Rustem Gazymbekov">
+    <meta name="author" content="LOGOVO Barbershop">
     <title>Gallery | LOGOVO Barbershop</title>
-    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
-<!-- Author: Rustem Gazymbekov -->
+    <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
 
     <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
         <div class="container">
@@ -23,10 +23,10 @@
 
     <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <button id="menu-toggle" class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
+            <div class="collapse navbar-collapse" id="main-menu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services &amp; Prices</a></li>
@@ -40,10 +40,7 @@
         </div>
     </nav>
 
-    <!-- container-fluid here, container on the six other pages: this page is only photos,
-         so the grid of pictures is allowed to use the whole width of the window instead of
-         stopping at the container. The text above it is still held in a narrow column. -->
-    <main class="container-fluid px-3 px-md-5 py-5">
+    <main id="main" class="container-fluid px-3 px-md-5 py-5">
         <section id="gallery-intro">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Inside LOGOVO</h2>
             <div class="row">
@@ -73,6 +70,11 @@
                                 <li>talc</li>
                             </ul>
                         </li>
+                        <li>Awards shelf
+                            <ul>
+                                <li>two 2GIS Awards 2025</li>
+                            </ul>
+                        </li>
                         <li>Waiting area
                             <ul>
                                 <li><abbr title="television">TV</abbr> and a game console</li>
@@ -86,8 +88,6 @@
 
         <section id="photos" class="mt-5">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Photos</h2>
-            <!-- every photo is in figure with figcaption, so the caption stays with its photo.
-                 The ratio box and object-fit-cover crop all four to the same shape. -->
             <div class="row g-4">
                 <figure class="col-12 col-md-6 col-lg-3 mb-0">
                     <div class="ratio ratio-4x3">
@@ -121,7 +121,6 @@
 
         <div class="row mt-5">
             <div class="col-12 col-lg-8">
-                <!-- span here because we only want to mark 3 words in the sentence, and strong or em do not fit by meaning -->
                 <p>
                     Want to see it yourself? <span class="text-primary text-uppercase fw-bold">Come to us</span> at Mangilik El 51/2,
                     we are open every day from 10:00 to 21:00.
@@ -133,7 +132,7 @@
             </div>
         </div>
 
-        <a class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html">Book a visit</a>
+        <a id="floating-book" class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html#booking">Book a visit</a>
     </main>
 
     <footer class="container-fluid bg-dark text-light py-4 mt-5">
@@ -145,7 +144,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
