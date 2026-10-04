@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Online booking at LOGOVO barbershop - choose a service, a barber and a time.">
-    <meta name="author" content="Abylay Utemis">
+    <meta name="author" content="LOGOVO Barbershop">
     <title>Booking | LOGOVO Barbershop</title>
-    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
-<!-- Author: Abylay Utemis -->
+    <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
 
     <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
         <div class="container">
@@ -23,10 +23,10 @@
 
     <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <button id="menu-toggle" class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
+            <div class="collapse navbar-collapse" id="main-menu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services &amp; Prices</a></li>
@@ -40,9 +40,7 @@
         </div>
     </nav>
 
-    <!-- container and not container-fluid: a booking form is easier to fill in when the
-         fields stay in a readable column instead of stretching over the whole monitor -->
-    <main class="container py-5">
+    <main id="main" class="container py-5">
         <div class="row g-4 g-lg-5">
             <div class="col-12 col-lg-7">
                 <section id="booking-intro">
@@ -58,13 +56,17 @@
                 </section>
 
                 <article id="barber-levels" class="mt-5">
-                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Which barber to choose</h2>
-                    <p>In the form you choose the level of the barber:</p>
-                    <!-- dl with the row class: Bootstrap turns the pairs into two columns
-                         from 576px up and stacks them on a phone -->
+                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Which Barber to Choose</h2>
+                    <p>
+                        In the form you choose a barber by name, or just the level if you have no favourite.
+                        The price depends on the level, see the <a href="team.html">team</a>:
+                    </p>
                     <dl class="row bg-white border rounded shadow-sm p-3 mb-0">
+                        <dt class="col-12 col-sm-4 text-primary">Lead barber</dt>
+                        <dd class="col-12 col-sm-8 mb-2">The first level and the lowest prices, without the free bonus.</dd>
+
                         <dt class="col-12 col-sm-4 text-primary">Top barber</dt>
-                        <dd class="col-12 col-sm-8 mb-2">The basic level, includes the free bonus.</dd>
+                        <dd class="col-12 col-sm-8 mb-2">The middle level, includes the free bonus.</dd>
 
                         <dt class="col-12 col-sm-4 text-primary">Senior barber</dt>
                         <dd class="col-12 col-sm-8 mb-0">The highest level and the most experience, also with the free bonus.</dd>
@@ -72,10 +74,8 @@
                 </article>
 
                 <section id="why-us" class="mt-5">
-                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Why our barbers</h2>
+                    <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Why Our Barbers</h2>
                     <p>We asked senior barber Akhmadzhon Ibrokhimov what is the hardest part of his job:</p>
-                    <!-- blockquote because this is a real quote. The dash in front of the name
-                         is drawn by the blockquote-footer class, so we removed our own one. -->
                     <blockquote class="blockquote bg-white border-start border-4 border-warning rounded shadow-sm p-3 fs-6 fst-italic">
                         <p>You listen to the problems of every client and with all your heart find a way to solve them.</p>
                         <footer class="blockquote-footer mb-0">Akhmadzhon Ibrokhimov, senior barber, 13 September 2026</footer>
@@ -84,14 +84,12 @@
             </div>
 
             <div class="col-12 col-lg-5">
-                <!-- aside because these are extra hints, not the main text.
-                     Bootstrap alert instead of the box we drew by hand. -->
                 <aside class="alert alert-secondary">
                     <h2 class="alert-heading h5">Tips</h2>
                     <p class="mb-0">
                         Come 5 minutes before your time. Press <kbd>Tab</kbd> to move between the fields.
-                        The form does not send anything yet; later the server will answer with
-                        <samp>Thank you! We will call you back.</samp>
+                        If you need to change the time after booking, call us at
+                        <a href="tel:+77003968940">+7 700 396 8940</a>.
                     </p>
                 </aside>
 
@@ -102,31 +100,51 @@
             </div>
         </div>
 
-        <section id="booking-form" class="mt-5">
+        <section id="booking" class="mt-5">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Booking Form</h2>
-            <!-- there is no server yet, so the form does not send anything.
-                 The form itself is the row: two fieldsets side by side from 992px,
-                 one under the other on a phone and a tablet. -->
-            <form class="row g-4" method="post" action="#">
-                <!-- two fieldsets: one for contacts, one for the visit, so the form is easier to read -->
+            <form id="booking-form" class="row g-4" method="get" action="booking.html#booking">
+                <div class="col-12">
+                    <!-- JS: list of errors -->
+                    <div id="booking-errors" class="is-hidden is-error rounded p-3" role="alert"></div>
+                </div>
+
                 <div class="col-12 col-lg-6">
                     <fieldset class="bg-white border rounded shadow-sm p-3 h-100">
                         <legend class="float-none w-auto fs-5 px-2 text-primary">Your Contacts</legend>
 
                         <p class="mb-3">
                             <label class="form-label" for="client-name">Name</label>
-                            <input class="form-control" type="text" id="client-name" name="client-name" placeholder="Your name" required>
+                            <input class="form-control" type="text" id="client-name" name="client-name" placeholder="Your name" autocomplete="name" aria-describedby="client-name-error" required>
+                            <span id="client-name-error" class="invalid-feedback">Please write your name.</span>
+                        </p>
+
+                        <p class="mb-3">
+                            <label class="form-label" for="client-phone">Phone</label>
+                            <input class="form-control" type="tel" id="client-phone" name="client-phone" placeholder="+7 700 000 0000" autocomplete="tel" aria-describedby="client-phone-error" required>
+                            <span id="client-phone-error" class="invalid-feedback">Please write a phone number, we call you on it to confirm the visit.</span>
                         </p>
 
                         <p class="mb-3">
                             <label class="form-label" for="client-email">Email</label>
-                            <input class="form-control" type="email" id="client-email" name="client-email" placeholder="example@mail.com" required>
+                            <input class="form-control" type="email" id="client-email" name="client-email" placeholder="example@mail.com" autocomplete="email" aria-describedby="client-email-error" required>
+                            <span id="client-email-error" class="invalid-feedback">Please write an email like name@mail.com.</span>
                         </p>
 
-                        <p class="mb-0">
-                            <label class="form-label" for="client-phone">Phone</label>
-                            <input class="form-control" type="tel" id="client-phone" name="client-phone" placeholder="+7 700 000 0000" required>
+                        <p class="mb-3">
+                            <label class="form-label" for="comment">Comment</label>
+                            <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="What haircut you want, allergies, etc."></textarea>
                         </p>
+
+                        <div class="mb-0">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="agree-gift" name="agree-gift">
+                                <label class="form-check-label" for="agree-gift">I want the free bonus with a top or senior barber: face mask, head massage and wax hair removal</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="agree-sms" name="agree-sms" checked>
+                                <label class="form-check-label" for="agree-sms">Send me an <abbr title="Short Message Service">SMS</abbr> one hour before the visit</label>
+                            </div>
+                        </div>
                     </fieldset>
                 </div>
 
@@ -134,71 +152,136 @@
                     <fieldset class="bg-white border rounded shadow-sm p-3 h-100">
                         <legend class="float-none w-auto fs-5 px-2 text-primary">Visit Details</legend>
 
-                        <p class="mb-3">
-                            <label class="form-label" for="visit-date">Date</label>
-                            <input class="form-control" type="date" id="visit-date" name="visit-date" required>
-                        </p>
-
-                        <p class="mb-3">
-                            <label class="form-label" for="people-count">Number of people</label>
-                            <input class="form-control" type="number" id="people-count" name="people-count" min="1" max="5" value="1">
-                        </p>
-
-                        <p class="form-label mb-1">Barber level</p>
-                        <!-- radio and not checkbox because you can choose only one barber -->
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="barber-top" name="barber-level" value="top" checked>
-                                <label class="form-check-label" for="barber-top">Top Barber</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="barber-senior" name="barber-level" value="senior">
-                                <label class="form-check-label" for="barber-senior">Senior Barber</label>
-                            </div>
-                        </div>
-
+                        <!-- data-price-*: prices for the total, empty = this level does not do it -->
                         <p class="mb-3">
                             <label class="form-label" for="service-select">Service</label>
-                            <select class="form-select" id="service-select" name="service-select">
-                                <option value="haircut">Men's haircut</option>
-                                <option value="haircut-long">Long hair haircut</option>
-                                <option value="haircut-beard">Haircut + beard</option>
-                                <option value="beard">Beard styling</option>
-                                <option value="tint-hair">Hair tinting</option>
-                                <option value="facial">Facial cleansing</option>
-                                <option value="perm">Perm + haircut</option>
+                            <select class="form-select" id="service-select" name="service" aria-describedby="service-select-error" required>
+                                <option value="">Choose a service</option>
+                                <option value="kids-haircut" data-price-lead="2000" data-price-top="3000" data-price-senior="4000">Kids haircut (up to 7 years)</option>
+                                <option value="haircut" data-price-lead="3000" data-price-top="4000" data-price-senior="5000" data-price-tuesday-lead="2500" data-price-tuesday-top="3500" data-price-tuesday-senior="4500">Men's haircut (8 years and older)</option>
+                                <option value="long-haircut" data-price-lead="4000" data-price-top="5000" data-price-senior="6000">Long hair haircut</option>
+                                <option value="haircut-beard" data-price-lead="5000" data-price-top="7000" data-price-senior="9000">Haircut + beard styling</option>
+                                <option value="beard" data-price-lead="2000" data-price-top="3000" data-price-senior="4000">Beard styling</option>
+                                <option value="hair-tint" data-price-lead="3000" data-price-top="4000" data-price-senior="5000">Hair tinting</option>
+                                <option value="beard-tint" data-price-lead="2000" data-price-top="3000" data-price-senior="4000">Beard tinting</option>
+                                <option value="facial" data-price-lead="3000" data-price-top="4000" data-price-senior="5000">Facial cleansing</option>
+                                <option value="perm" data-price-lead="" data-price-top="20000" data-price-senior="20000">Perm + haircut</option>
+                            </select>
+                            <span id="service-select-error" class="invalid-feedback">Please choose a service.</span>
+                        </p>
+
+                        <p class="mb-3">
+                            <label class="form-label" for="hair-design">Hair design</label>
+                            <select class="form-select" id="hair-design" name="design">
+                                <option value="none" data-price="0">No design</option>
+                                <option value="lightning" data-price="500">Lightning, +500 tg</option>
+                                <option value="spiderweb" data-price="1000">Spiderweb, +1000 tg</option>
                             </select>
                         </p>
 
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="agree-gift" name="agree-gift">
-                                <label class="form-check-label" for="agree-gift">I want the free bonus (only for top and senior barbers)</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="agree-sms" name="agree-sms" checked>
-                                <label class="form-check-label" for="agree-sms">Send me an <abbr title="Short Message Service">SMS</abbr> one hour before the visit</label>
-                            </div>
+                        <p class="mb-3">
+                            <label class="form-label" for="barber-select">Barber</label>
+                            <select class="form-select" id="barber-select" name="barber" aria-describedby="barber-select-error" required>
+                                <option value="">Choose a barber</option>
+                                <optgroup label="Lead barbers">
+                                    <option value="any-lead" data-level="lead">Any lead barber</option>
+                                    <option value="daniyar" data-level="lead">Daniyar</option>
+                                    <option value="arman" data-level="lead">Arman</option>
+                                    <option value="yerassyl" data-level="lead">Yerassyl</option>
+                                </optgroup>
+                                <optgroup label="Top barbers">
+                                    <option value="any-top" data-level="top">Any top barber</option>
+                                    <option value="nurbakyt" data-level="top">Nurbakyt</option>
+                                    <option value="baktybay" data-level="top">Baktybay</option>
+                                    <option value="ilyas" data-level="top">Ilyas</option>
+                                </optgroup>
+                                <optgroup label="Senior barbers">
+                                    <option value="any-senior" data-level="senior">Any senior barber</option>
+                                    <option value="akhmadzhon" data-level="senior">Akhmadzhon</option>
+                                    <option value="shukur" data-level="senior">Shukur</option>
+                                    <option value="khan" data-level="senior">Khan</option>
+                                </optgroup>
+                            </select>
+                            <span id="barber-select-error" class="invalid-feedback">Please choose a barber or a level.</span>
+                        </p>
+
+                        <div class="row g-3 mb-3">
+                            <p class="col-12 col-sm-6 mb-0">
+                                <label class="form-label" for="visit-date">Date</label>
+                                <input class="form-control" type="date" id="visit-date" name="visit-date" aria-describedby="visit-date-error" required>
+                                <span id="visit-date-error" class="invalid-feedback">Please choose a day from today on.</span>
+                            </p>
+
+                            <p class="col-12 col-sm-6 mb-0">
+                                <label class="form-label" for="visit-time">Time</label>
+                                <select class="form-select" id="visit-time" name="visit-time" aria-describedby="visit-time-error" required>
+                                    <option value="">Choose a time</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="20:00">20:00</option>
+                                </select>
+                                <span id="visit-time-error" class="invalid-feedback">Please choose a time.</span>
+                            </p>
                         </div>
 
                         <p class="mb-0">
-                            <label class="form-label" for="comment">Comment</label>
-                            <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="What haircut you want, allergies, etc."></textarea>
+                            <label class="form-label" for="people-count">Number of people</label>
+                            <input class="form-control" type="number" id="people-count" name="people-count" min="1" max="5" value="1" aria-describedby="people-count-error">
+                            <span id="people-count-error" class="invalid-feedback">From 1 to 5 people.</span>
                         </p>
                     </fieldset>
                 </div>
 
-                <p class="col-12 d-flex flex-wrap justify-content-center align-items-center gap-2 mb-0">
-                    <button type="submit" class="btn btn-primary">Book</button>
-                    <button type="reset" class="btn btn-outline-secondary">Clear</button>
-                    <!-- disabled state: paying online is not open yet. It is a real form
-                         control, so a screen reader announces it as disabled. -->
-                    <button type="button" class="btn btn-secondary btn-sm" disabled>Pay online (soon)</button>
+                <div class="col-12">
+                    <!-- JS: fills the summary and the total -->
+                    <section id="booking-summary" class="bg-white border-start border-4 border-warning rounded shadow-sm p-3" aria-labelledby="booking-summary-title">
+                        <h3 id="booking-summary-title" class="h5">Your Booking</h3>
+                        <dl class="row mb-2">
+                            <dt class="col-5 col-sm-3">Service</dt>
+                            <dd id="summary-service" class="col-7 col-sm-9 mb-1">not chosen yet</dd>
+                            <dt class="col-5 col-sm-3">Barber</dt>
+                            <dd id="summary-barber" class="col-7 col-sm-9 mb-1">not chosen yet</dd>
+                            <dt class="col-5 col-sm-3">Date and time</dt>
+                            <dd id="summary-time" class="col-7 col-sm-9 mb-1">not chosen yet</dd>
+                            <dt class="col-5 col-sm-3">Total</dt>
+                            <dd class="col-7 col-sm-9 mb-0 fw-bold text-primary">
+                                <output id="booking-total" for="service-select hair-design barber-select people-count visit-date">choose a service and a barber</output>
+                            </dd>
+                        </dl>
+                        <p class="small text-body-secondary mb-0">
+                            Every Tuesday is Student Day: a men's haircut costs 500 tg less.
+                            You pay at the barbershop after the visit.
+                        </p>
+                    </section>
+                </div>
+
+                <p id="booking-next" class="col-12 text-center mb-0">
+                    When you press <strong>Book</strong>, the form checks every field and shows what is missing.
+                    Then the confirmation with your service, barber, time and total appears right below,
+                    and LOGOVO calls you on your phone number to confirm the visit.
                 </p>
+
+                <p class="col-12 d-flex flex-wrap justify-content-center align-items-center gap-5 mb-0">
+                    <button id="booking-submit" type="submit" class="btn btn-primary">Book</button>
+                    <button id="booking-reset" type="reset" class="btn btn-outline-secondary">Clear</button>
+                </p>
+
+                <div class="col-12">
+                    <!-- JS: confirmation after Book -->
+                    <div id="booking-result" class="is-hidden is-success rounded p-3 text-center" role="status" aria-live="polite"></div>
+                </div>
             </form>
         </section>
 
-        <a class="btn btn-outline-dark btn-sm bg-body shadow position-fixed bottom-0 end-0 m-3" href="tel:+77003968940">Call us</a>
+        <a id="floating-book" class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="#booking">Book a visit</a>
     </main>
 
     <footer class="container-fluid bg-dark text-light py-4 mt-5">
@@ -210,7 +293,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Price list of LOGOVO barbershop: haircuts, beard styling, tinting and perms.">
-    <meta name="author" content="Abylay Utemis">
+    <meta name="author" content="LOGOVO Barbershop">
     <title>Services &amp; Prices | LOGOVO Barbershop</title>
-    <!-- Bootstrap 5.3.8 from the jsDelivr CDN, our own file after it so our rules win -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
-<!-- Author: Abylay Utemis -->
+    <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
 
     <header class="container-fluid bg-dark text-light text-center py-4 border-bottom border-4 border-warning">
         <div class="container">
@@ -23,10 +23,10 @@
 
     <nav class="navbar navbar-expand-lg bg-dark sticky-top border-bottom border-warning" data-bs-theme="dark">
         <div class="container">
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <button id="menu-toggle" class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainMenu">
+            <div class="collapse navbar-collapse" id="main-menu">
                 <ul class="navbar-nav mx-auto text-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="services.html">Services &amp; Prices</a></li>
@@ -40,9 +40,7 @@
         </div>
     </nav>
 
-    <!-- container and not container-fluid: the price table is easier to read when it
-         stops at the container width; a table stretched over a wide monitor is not -->
-    <main class="container py-5">
+    <main id="main" class="container py-5">
         <section id="services-intro">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-4">Our Services</h2>
             <div class="row g-4 align-items-start">
@@ -53,7 +51,7 @@
                 <div class="col-12 col-md-7 col-lg-8">
                     <p>
                         In LOGOVO (the word <i>logovo</i> means "lair" in Russian) the price depends
-                        on the barber's level: <b>top</b> or <b>senior</b>.
+                        on the barber's level: <b>lead</b>, <b>top</b> or <b>senior</b>.
                         A haircut from a top or senior barber includes <a href="#gift">a free bonus</a>.
                         The steps of a visit are in <a href="#visit-steps">&quot;How a Visit Works&quot;</a>.
                     </p>
@@ -64,9 +62,7 @@
                         for example 3000&ndash;5000 tg for a men's haircut. <em>Kids pay less.</em>
                     </p>
 
-                    <!-- NESTED GRID: this row sits inside the col-md-7 col-lg-8 above, so the
-                         three cards share the width of that column and not of the whole page.
-                         One card wide on a phone, two from 576px, three from 992px. -->
+                    <!-- nested grid -->
                     <ul class="row g-3 list-unstyled mb-0">
                         <li class="col-12 col-sm-6 col-lg-4">
                             <div class="card h-100 border-start border-4 border-warning shadow-sm">
@@ -110,76 +106,109 @@
 
         <section id="price-table" class="mt-5">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-3">Price List</h2>
-            <!-- the gold badge we positioned by hand is now a Bootstrap alert -->
             <p class="alert alert-warning text-center fw-bold text-uppercase">&#9733; Tuesday: Student Day</p>
-            <!-- prices are in a table because every service has 3 prices, a list would be hard
-                 to read. table-responsive: on a phone the table scrolls inside its own box
-                 instead of pushing the whole page sideways. -->
-            <div class="table-responsive">
+            <!-- position-relative keeps the hidden Book labels inside the scroll box -->
+            <div class="table-responsive position-relative">
                 <table class="table table-striped table-bordered align-middle caption-top mb-3">
                     <caption class="fw-bold text-body">Prices of LOGOVO Barbershop in tenge (tg), September 2026<sup>*</sup></caption>
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">Service</th>
+                            <th scope="col" class="text-end">Lead Barber</th>
                             <th scope="col" class="text-end">Top Barber</th>
                             <th scope="col" class="text-end">Senior Barber</th>
+                            <th scope="col" class="text-center">Booking</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr id="price-kids-haircut">
                             <th scope="row">Kids haircut (up to 7 years)</th>
+                            <td class="text-end">2000 tg</td>
                             <td class="text-end">3000 tg</td>
                             <td class="text-end">4000 tg</td>
+                            <td class="text-center"><a id="book-kids-haircut" class="btn btn-warning btn-sm" href="booking.html?service=kids-haircut#booking">Book<span class="visually-hidden">: Kids haircut (up to 7 years)</span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="price-haircut">
                             <th scope="row">Men's haircut (8 years and older)</th>
+                            <td class="text-end">3000 tg</td>
                             <td class="text-end">4000 tg</td>
                             <td class="text-end">5000 tg</td>
+                            <td class="text-center"><a id="book-haircut" class="btn btn-warning btn-sm" href="booking.html?service=haircut#booking">Book<span class="visually-hidden">: Men's haircut (8 years and older)</span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="price-long-haircut">
                             <th scope="row">Long hair haircut</th>
+                            <td class="text-end">4000 tg</td>
                             <td class="text-end">5000 tg</td>
                             <td class="text-end">6000 tg</td>
+                            <td class="text-center"><a id="book-long-haircut" class="btn btn-warning btn-sm" href="booking.html?service=long-haircut#booking">Book<span class="visually-hidden">: Long hair haircut</span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="price-haircut-beard">
                             <th scope="row">Haircut + beard styling</th>
+                            <td class="text-end">5000 tg</td>
                             <td class="text-end">7000 tg</td>
                             <td class="text-end">9000 tg</td>
+                            <td class="text-center"><a id="book-haircut-beard" class="btn btn-warning btn-sm" href="booking.html?service=haircut-beard#booking">Book<span class="visually-hidden">: Haircut + beard styling</span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="price-beard">
                             <th scope="row">Beard styling</th>
+                            <td class="text-end">2000 tg</td>
                             <td class="text-end">3000 tg</td>
                             <td class="text-end">4000 tg</td>
+                            <td class="text-center"><a id="book-beard" class="btn btn-warning btn-sm" href="booking.html?service=beard#booking">Book<span class="visually-hidden">: Beard styling</span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="price-hair-tint">
                             <th scope="row">Hair tinting</th>
+                            <td class="text-end">3000 tg</td>
                             <td class="text-end">4000 tg</td>
                             <td class="text-end">5000 tg</td>
+                            <td class="text-center"><a id="book-hair-tint" class="btn btn-warning btn-sm" href="booking.html?service=hair-tint#booking">Book<span class="visually-hidden">: Hair tinting</span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="price-beard-tint">
                             <th scope="row">Beard tinting</th>
+                            <td class="text-end">2000 tg</td>
                             <td class="text-end">3000 tg</td>
                             <td class="text-end">4000 tg</td>
+                            <td class="text-center"><a id="book-beard-tint" class="btn btn-warning btn-sm" href="booking.html?service=beard-tint#booking">Book<span class="visually-hidden">: Beard tinting</span></a></td>
                         </tr>
-                        <tr>
-                            <th scope="row">Tuesday "Student Day" offer</th>
+                        <tr id="price-student-day">
+                            <th scope="row">Tuesday &quot;Student Day&quot; men's haircut</th>
+                            <td class="text-end">2500 tg</td>
                             <td class="text-end">3500 tg</td>
                             <td class="text-end">4500 tg</td>
+                            <td class="text-center"><a id="book-student-day" class="btn btn-warning btn-sm" href="booking.html?service=haircut#booking">Book<span class="visually-hidden">: Tuesday &quot;Student Day&quot; men's haircut</span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="price-facial">
                             <th scope="row">Facial cleansing</th>
+                            <td class="text-end">3000 tg</td>
                             <td class="text-end">4000 tg</td>
                             <td class="text-end">5000 tg</td>
+                            <td class="text-center"><a id="book-facial" class="btn btn-warning btn-sm" href="booking.html?service=facial#booking">Book<span class="visually-hidden">: Facial cleansing</span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="price-perm">
                             <th scope="row">Perm + haircut</th>
+                            <td class="text-end">&mdash;<span class="visually-hidden"> not done by a lead barber</span></td>
                             <td class="text-end">20000 tg</td>
                             <td class="text-end">20000 tg</td>
+                            <td class="text-center"><a id="book-perm" class="btn btn-warning btn-sm" href="booking.html?service=perm#booking">Book<span class="visually-hidden">: Perm + haircut</span></a></td>
+                        </tr>
+                        <tr id="price-design-lightning">
+                            <th scope="row">Hair design &quot;Lightning&quot;, added to a haircut</th>
+                            <td class="text-end">+500 tg</td>
+                            <td class="text-end">+500 tg</td>
+                            <td class="text-end">+500 tg</td>
+                            <td class="text-center"><a id="book-design-lightning" class="btn btn-warning btn-sm" href="booking.html?service=haircut&amp;design=lightning#booking">Book<span class="visually-hidden">: Hair design &quot;Lightning&quot;, added to a haircut</span></a></td>
+                        </tr>
+                        <tr id="price-design-spiderweb">
+                            <th scope="row">Hair design &quot;Spiderweb&quot;, added to a haircut</th>
+                            <td class="text-end">+1000 tg</td>
+                            <td class="text-end">+1000 tg</td>
+                            <td class="text-end">+1000 tg</td>
+                            <td class="text-center"><a id="book-design-spiderweb" class="btn btn-warning btn-sm" href="booking.html?service=haircut&amp;design=spiderweb#booking">Book<span class="visually-hidden">: Hair design &quot;Spiderweb&quot;, added to a haircut</span></a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <p id="gift" class="text-body-secondary small mb-1">Free bonus with a top or senior barber: face mask, hair wax and a head massage.</p>
+            <p id="gift" class="text-body-secondary small mb-1">Free bonus with a top or senior barber: face mask, head massage and wax hair removal.</p>
             <p class="text-body-secondary small">
                 <sup>*</sup> Prices can change on offer days. Reviews are on
                 <a href="https://2gis.kz/astana/search/%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE/firm/70000001061804531/71.422227%2C51.09529?m=71.422227%2C51.09529%2F14.86" target="_blank" rel="noopener noreferrer">2GIS</a>,
@@ -191,8 +220,6 @@
 
         <section id="visit-steps">
             <h2 class="border-bottom border-2 border-warning pb-2 mb-3">How a Visit Works</h2>
-            <!-- ol and not ul because the steps go in order. list-group-numbered draws the
-                 numbers, so we need neither the browser markers nor our own counters. -->
             <ol class="list-group list-group-numbered shadow-sm">
                 <li class="list-group-item">Choose a service and a barber in the <a href="booking.html">booking form</a>.</li>
                 <li class="list-group-item">Come at your time to Mangilik El 51/2.</li>
@@ -210,8 +237,7 @@
             </div>
         </div>
 
-        <!-- position-fixed keeps the call to action on screen while the price list scrolls -->
-        <a class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html">Book a visit</a>
+        <a id="floating-book" class="btn btn-warning shadow position-fixed bottom-0 end-0 m-3" href="booking.html#booking">Book a visit</a>
     </main>
 
     <footer class="container-fluid bg-dark text-light py-4 mt-5">
@@ -223,7 +249,6 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5.3.8 bundle, needed by the navbar toggler -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
