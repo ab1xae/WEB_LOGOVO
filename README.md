@@ -158,9 +158,3 @@ Screenshots in `screenshots/assignment-5/`:
 - `team-finder.png`, `team-compare.png` — barber search with empty state, price by level
 - `gallery-viewer.png`, `gallery-viewer-phone.png` — photo viewer
 - `footer-open-status.png` — open status on every page
-
-### AI log
-| Date | Tool | What we asked | What we did with the answer |
-|---|---|---|---|
-| 24 October 2026 | Claude (Anthropic) | Write the JavaScript for assignments 4–5 without changing the HTML and CSS: shared `main.js`, a script for each page, form validation | Read every file, tested each page in the browser, kept `booking.js` and added the validation to it |
-| 24 October 2026 | Claude (Anthropic) | Check the work against the assignment | Fixed the free bonus rule (only with a haircut, as on the price stand), added `is-success` to the review counter, moved the gallery buttons above the photo, added screenshots |
