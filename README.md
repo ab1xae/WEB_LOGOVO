@@ -55,7 +55,8 @@ Since assignment 5 every journey ends with a result on the page (see the Functio
 
 ## Folders
 - `css/` — our stylesheet
-- `js/` — `main.js` for every page and one script per page
+- `js/` — `main.js` for every page, one script per page, `forms.js` for the two forms,
+  `old-js-version.js` (not linked, the plain-JavaScript versions for comparison)
 - `images/` — our own photos and the logo
 - `screenshots/midterm/` — every page at phone (375px) and desktop (1440px) width
 - `screenshots/` — older screenshots from assignments 2 and 3
@@ -96,10 +97,6 @@ text corrections (no points for them):
   nothing, so the text now says it shows a demonstration summary.
 - `about.html`, `#review-next` — said "your review goes to the LOGOVO team, we write to your email".
   Now it says the review is only added to the list on the page.
-
-Everything else (search fields, review cards, the photo viewer, the price comparison) is created
-with DOM methods in `js/`. States use the midterm classes `is-hidden`, `is-active`, `is-selected`,
-`is-error`, `is-success` and Bootstrap `is-invalid` / `is-valid`.
 
 ### Functionality Plan
 | Page | Visitor goal | Function | Expected result | Student |
@@ -158,3 +155,47 @@ Screenshots in `screenshots/assignment-5/`:
 - `team-finder.png`, `team-compare.png` — barber search with empty state, price by level
 - `gallery-viewer.png`, `gallery-viewer-phone.png` — photo viewer
 - `footer-open-status.png` — open status on every page
+
+## Assignment 6: jQuery
+
+jQuery 3.7.1 is linked from the jQuery CDN on `services.html`, `booking.html` and `about.html`,
+before our own scripts (the comment next to the line says why). The other pages do not use it.
+All code is in `js/`, inside `$(function () { ... })`, every handler is attached with `.on()`,
+no `onclick` in the HTML. The HTML and CSS freeze still holds: only `<script>` lines were added.
+
+### Three features rewritten
+The plain-JavaScript versions are in `js/old-js-version.js`, which is not linked to any page.
+The comparison comment is at the top of each file.
+
+| Feature | jQuery version | Shorter? |
+|---|---|---|
+| Booking form: summary, total, validation, confirmation | `js/booking.js` | no, about the same (295 code lines, was 286) |
+| Reviews: cards from an array, rating filter, review form | `js/about.js` | about the same (231, was 223), the cards got a new button |
+| Price list: search, category, sort | `js/services.js` | yes (120, was 140) |
+| Field error helpers for both forms (were in `main.js`) | `js/forms.js` | a little (38, was 44) |
+
+The gallery viewer and the barber finder stay in plain JavaScript, they do not mix with jQuery.
+
+### jQuery checklist
+| Requirement | File and lines |
+|---|---|
+| Selectors: id, class, element, attribute | `$('#booking-form')`, `.find('.is-invalid')`, `$('#price-table tbody')`, `input[name="rating"]` (`js/about.js:150`) |
+| Filters `:first`, `:checked`, `:not()`, `:selected` | `js/booking.js:327`, `js/about.js:150`, `js/booking.js:162`, `js/booking.js:43` |
+| Traversal `.find()`, `.closest()`, `.parent()`, `.siblings()`, `.children()`, `.each()` | `js/booking.js:162`, `js/about.js:270`, `js/forms.js:12`, `js/forms.js:9`, `js/services.js:100`, `js/booking.js:339` |
+| `$(this)` in handlers | `js/about.js:270`, `js/booking.js:339-340`, `js/about.js:257-258` |
+| Chains of 3+ methods, one explained link by link | `js/about.js:238-239` (explained), `js/forms.js:16`, `js/booking.js:259` |
+| `.text()` / `.html()` | `.text()` for everything the visitor typed; `.html()` only for our own line with a phone link, `js/booking.js:284-288` |
+| `.val()` / `.attr()` / `.prop()` | `.val()` in every form; `.attr('href')` `js/services.js:88`; `.prop('checked')` vs `.attr('checked')` `js/booking.js:182-184` |
+| `addClass` / `removeClass` / `toggleClass` / `hasClass` | `js/forms.js:16`, `js/forms.js:52`, `js/about.js:145`, `js/services.js:99` |
+| List built from an array with `.append()` / `.appendTo()` | review cards `js/about.js:94` and `:125` (no card markup in `about.html`), price rows `js/services.js:115` |
+| Event types | submit, reset, input, change, click |
+| Delegated handlers + why direct binding fails | `js/about.js:267-273` (buttons in the review cards), `js/services.js:143-144` (Show all services) |
+| `event.preventDefault()` + what happens without it | `js/booking.js:320-321`, `js/about.js:213-214` |
+| Effects with a purpose | error list `.slideDown(300)` / `.slideUp(200)` `js/forms.js:34-48`; confirmation `.fadeIn(400, callback)` moves the focus after the fade `js/forms.js:56`; new review card `.fadeIn(800)`; old confirmation `.fadeOut(200)` when the form is changed |
+| Validation | `js/booking.js:232`, `js/about.js:180`: trimmed values, email and phone format, a message beside each field, errors cleared as soon as the field is fixed, success only when all checks pass, then the form is reset |
+| `required` kept, browser check vs server check | `js/booking.js:307-308`, comment in `js/forms.js:6` |
+
+### Checks
+- Tested in Chrome: every form with empty, wrong and correct data, Clear, the delegated buttons,
+  the effects and the Student Day row on a Tuesday.
+- No console errors on any of the 7 pages.

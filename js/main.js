@@ -91,54 +91,6 @@ function getNameError(name) {
     return '';
 }
 
-function showFieldError(field, message) {
-    let feedback = document.getElementById(field.id + '-error');
-    if (feedback === null) {
-        feedback = createElement('span', ['invalid-feedback']);
-        feedback.id = field.id + '-error';
-        field.parentElement.append(feedback);
-        field.setAttribute('aria-describedby', feedback.id);
-    }
-    feedback.textContent = message;
-    field.classList.remove('is-valid');
-    field.classList.add('is-invalid');
-    field.setAttribute('aria-invalid', 'true');
-}
-
-function clearFieldState(field) {
-    field.classList.remove('is-invalid', 'is-valid');
-    field.removeAttribute('aria-invalid');
-}
-
-function checkField(field, message, errors) {
-    if (message === '') {
-        clearFieldState(field);
-        if (field.type !== 'checkbox') {
-            field.classList.add('is-valid');
-        }
-    } else {
-        showFieldError(field, message);
-        errors.push({ field: field, message: message });
-    }
-    return message === '';
-}
-
-function showErrorList(box, errors) {
-    box.replaceChildren();
-    if (errors.length === 0) {
-        box.classList.add('is-hidden');
-        return;
-    }
-    const word = errors.length === 1 ? 'field' : 'fields';
-    box.append(createElement('p', ['fw-bold', 'mb-2'], 'Please fix ' + errors.length + ' ' + word + ':'));
-    const list = createElement('ul', ['mb-0']);
-    errors.forEach(function (error) {
-        list.append(createElement('li', [], error.message));
-    });
-    box.append(list);
-    box.classList.remove('is-hidden');
-}
-
 function describeOpenStatus(now) {
     const hour = now.getHours();
     if (hour >= OPEN_HOUR && hour < CLOSE_HOUR) {
